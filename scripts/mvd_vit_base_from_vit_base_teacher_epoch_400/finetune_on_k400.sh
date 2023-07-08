@@ -2,8 +2,13 @@
 GPUS=`nvidia-smi -L | wc -l`
 OUTPUT_DIR='OUTPUT/mvd_vit_base_with_vit_base_teacher_k400_epoch_400/finetune_on_k400'
 MODEL_PATH='OUTPUT/mvd_vit_base_with_vit_base_teacher_k400_epoch_400/checkpoint-399.pth'
-DATA_PATH='k400_anno'
-DATA_ROOT='your_path/kinetics400'
+DATA_PATH='/data/i5O/kinetics-dataset/annotations'
+DATA_ROOT='/data/i5O/kinetics400/'
+
+MASTER_ADDR=127.0.0.1
+MASTER_PORT=6006
+NODE_COUNT=1
+RANK=0
 
 # train on 32 V100 GPUs (4 nodes x 8 GPUs)
 OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} \
