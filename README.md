@@ -67,6 +67,8 @@ Official PyTorch implementation of "[**Masked Video Distillation: Rethinking Mas
 
 Please follow the instructions in [INSTALL.md](INSTALL.md).
 
+To run on GPUCluster (A100 80GB), use myenv (torch==1.10.0+cu111) and switch from using CUDA 10.2 to cuda 11.4 using [export PATH=/etc/alternatives/cuda/bin:$PATH](https://stackoverflow.com/a/73387838)
+
 ## Data Preparation
 
 Please follow the instructions in [DATASET.md](DATASET.md) for data preparation.
