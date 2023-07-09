@@ -1,7 +1,7 @@
 #!/bin/bash
 GPUS=`nvidia-smi -L | wc -l`
 OUTPUT_DIR='OUTPUT/mvd_vit_base_with_vit_base_teacher_k400_epoch_400/finetune_on_k400'
-MODEL_PATH='OUTPUT/mvd_vit_base_with_vit_base_teacher_k400_epoch_400/checkpoint-399.pth'
+MODEL_PATH='/data/i5O/pretrained/mvd_b_from_b_ckpt_399.pth'
 DATA_PATH='/data/i5O/kinetics-dataset/annotations'
 DATA_ROOT='/data/i5O/kinetics400/'
 
