@@ -64,7 +64,17 @@ class VideoClsDataset(Dataset):
         import pandas as pd
 
         cleaned = pd.read_csv(self.anno_path, header=None, delimiter=",")
+        # In engine_for_finetuning.py, targets (the labels) needs to be a numpy array (integers).
+        # Hence, here we will replace the label in this dataframe with its sorted index, while saving the original column.
+
+        self.cleaned_labels = np.sort(
+            np.unique(cleaned[1])
+        )  # a numpy array of the 400 string labels
+        cleaned[1] = cleaned[1].replace(
+            self.cleaned_labels, list(range(len(self.cleaned_labels)))
+        )
         print(cleaned)
+
         self.dataset_samples = list(cleaned.values[:, 0])
         if self.data_path is not None:
             self.dataset_samples = [
