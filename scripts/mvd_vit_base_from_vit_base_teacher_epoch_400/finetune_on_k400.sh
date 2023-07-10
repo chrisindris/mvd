@@ -3,7 +3,7 @@ GPUS=`nvidia-smi -L | wc -l`
 OUTPUT_DIR='OUTPUT/mvd_vit_base_with_vit_base_teacher_k400_epoch_400/finetune_on_k400'
 MODEL_PATH='/data/i5O/pretrained/mvd_b_from_b_ckpt_399.pth'
 DATA_PATH='/data/i5O/kinetics-dataset/annotations'
-DATA_ROOT='/data/i5O/kinetics400/'
+DATA_ROOT='/data/i5O/kinetics400/train/'
 
 MASTER_ADDR=127.0.0.1
 MASTER_PORT=6006
@@ -29,4 +29,5 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} \
     --num_frames 16 --sampling_rate 4 \
     --lr 5e-4 --epochs 75 \
     --dist_eval --test_num_segment 5 --test_num_crop 3 \
-    --enable_deepspeed
+    --enable_deepspeed \
+    --num_workers 1
