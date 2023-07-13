@@ -9,11 +9,11 @@
   3. Generate annotations needed for dataloader ("<path_to_video> <video_class>" in annotations) in `k400_anno`. The annotation usually includes `train.csv`, `val.csv` and `test.csv` ( here `test.csv` is the same as `val.csv`). The format of `*.csv` file is like:
 
      ```
-     dataset_root/video_1.mp4  label_1
-     dataset_root/video_2.mp4  label_2
-     dataset_root/video_3.mp4  label_3
+     dataset_root/video_1.mp4,label_1
+     dataset_root/video_2.mp4,label_2
+     dataset_root/video_3.mp4,label_3
      ...
-     dataset_root/video_N.mp4  label_N
+     dataset_root/video_N.mp4,label_N
      ```
 
 
@@ -26,9 +26,9 @@
   3. Generate annotations needed for dataloader ("<path_to_video> <video_class>" in annotations) in `ssv2_anno`. The annotation usually includes `train.csv`, `val.csv` and `test.csv` ( here `test.csv` is the same as `val.csv`). The format of `*.csv` file is like:
 
    ```
-   dataset_root/video_1.webm  label_1
-   dataset_root/video_2.webm  label_2
-   dataset_root/video_3.webm  label_3
+   dataset_root/video_1.webm,label_1
+   dataset_root/video_2.webm,label_2
+   dataset_root/video_3.webm,label_3
    ...
-   dataset_root/video_N.webm  label_N
+   dataset_root/video_N.webm,label_N
    ```

@@ -22,12 +22,12 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} \
     --finetune ${MODEL_PATH} \
     --log_dir ${OUTPUT_DIR} \
     --output_dir ${OUTPUT_DIR} \
-    --input_size 224 --short_side_size 224 \
+    --input_size 320 --short_side_size 320 \
     --opt adamw --opt_betas 0.9 0.999 --weight_decay 0.05 \
-    --batch_size 6 --update_freq 2 --num_sample 2 \
+    --batch_size 32 --update_freq 2 --num_sample 2 \
     --save_ckpt_freq 5 --no_save_best_ckpt \
     --num_frames 16 --sampling_rate 4 \
-    --lr 5e-4 --epochs 75 \
+    --lr 1e-3 --epochs 75 \
     --dist_eval --test_num_segment 5 --test_num_crop 3 \
     --enable_deepspeed \
     --num_workers 1
