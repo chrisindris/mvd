@@ -11,10 +11,16 @@ from einops import rearrange
 from torch.utils.data._utils.collate import default_collate
 import torch.nn.functional as F
 
+from torch.profiler import profile, record_function, ProfilerActivity
+
 
 def train_class_batch(model, samples, target, criterion):
-    outputs = model(samples)
-    loss = criterion(outputs, target)
+    with profile(
+        activities=[ProfilerActivity.CPU], profile_memory=True, record_shapes=True
+    ) as prof:
+        outputs = model(samples)
+        loss = criterion(outputs, target)
+    print(prof.key_averages().table(sort_by="self_cpu_memory_usage", row_limit=10))
     return loss, outputs
 
 
