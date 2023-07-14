@@ -1,9 +1,14 @@
 #!/bin/bash
 GPUS=`nvidia-smi -L | wc -l`
 OUTPUT_DIR='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400'
-MODEL_PATH='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/checkpoint-399.pth'
-DATA_PATH='k400_anno'
-DATA_ROOT='your_path/kinetics400'
+MODEL_PATH='/data/i5O/pretrained/mvd_s_from_b_ckpt_399.pth'
+DATA_PATH='/data/i5O/kinetics-dataset/annotations'
+DATA_ROOT='/data/i5O/kinetics400/train/'
+
+MASTER_ADDR=127.0.0.1
+MASTER_PORT=6006
+NODE_COUNT=1
+RANK=0
 
 # train on 16 V100 GPUs (2 nodes x 8 GPUs)
 OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} \
@@ -19,9 +24,10 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} \
     --output_dir ${OUTPUT_DIR} \
     --input_size 224 --short_side_size 224 \
     --opt adamw --opt_betas 0.9 0.999 --weight_decay 0.05 \
-    --batch_size 12 --update_freq 2 --num_sample 2 \
-    --save_ckpt_freq 5 --no_save_best_ckpt \
+    --batch_size 4 --update_freq 2 --num_sample 2 \
+    --save_ckpt_freq 50 --no_save_best_ckpt \
     --num_frames 16 --sampling_rate 4 \
-    --lr 5e-4 --epochs 150 \
+    --lr 1e-3 --warmup_lr 1e-3 --min_lr 1e-3 --warmup_epochs 0 --epochs 150 \
     --dist_eval --test_num_segment 5 --test_num_crop 3 \
-    --enable_deepspeed
+    --enable_deepspeed \
+    --num_workers 6
