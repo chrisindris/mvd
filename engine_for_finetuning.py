@@ -15,12 +15,14 @@ from torch.profiler import profile, record_function, ProfilerActivity
 
 
 def train_class_batch(model, samples, target, criterion):
-    with profile(
-        activities=[ProfilerActivity.CPU], profile_memory=True, record_shapes=True
-    ) as prof:
-        outputs = model(samples)
-        loss = criterion(outputs, target)
-    print(prof.key_averages().table(sort_by="self_cpu_memory_usage", row_limit=10))
+    # with profile(
+    #    activities=[ProfilerActivity.CPU], profile_memory=True, record_shapes=True
+    # ) as prof:
+    #    outputs = model(samples)
+    #    loss = criterion(outputs, target)
+    # print(prof.key_averages().table(sort_by="self_cpu_memory_usage", row_limit=10))
+    outputs = model(samples)
+    loss = criterion(outputs, target)
     return loss, outputs
 
 

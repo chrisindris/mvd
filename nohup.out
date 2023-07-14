@@ -1,5 +1,5 @@
 | distributed init (rank 0): env://, gpu 0
-Namespace(aa='rand-m7-n4-mstd0.5-inc1', attn_drop_rate=0.0, auto_resume=True, batch_size=4, clip_grad=None, color_jitter=0.4, crop_pct=None, cutmix=1.0, cutmix_minmax=None, data_path='/data/i5O/kinetics-dataset/annotations', data_root='/data/i5O/kinetics400/train/', data_set='Kinetics-400', deepscale=False, deepscale_config=None, deepspeed=False, deepspeed_config='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400/deepspeed_config.json', deepspeed_mpi=False, device='cuda', disable_eval_during_finetuning=False, dist_backend='nccl', dist_eval=True, dist_on_itp=False, dist_url='env://', distributed=True, drop=0.0, drop_path=0.1, enable_deepspeed=True, epochs=150, eval=False, eval_data_path=None, eval_log_name='log_eval', fc_drop_rate=0.0, finetune='/data/i5O/pretrained/mvd_s_from_b_ckpt_399.pth', gpu=0, imagenet_default_mean_and_std=True, init_scale=0.001, input_size=224, layer_decay=0.75, local_rank=0, log_dir='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400', lr=0.001, merge_test=False, min_lr=0.001, mixup=0.8, mixup_mode='batch', mixup_prob=1.0, mixup_switch_prob=0.5, model='vit_small_patch16_224', model_ema=False, model_ema_decay=0.9999, model_ema_force_cpu=False, model_key='model|module', model_prefix='', momentum=0.9, nb_classes=400, no_save_best_ckpt=False, num_frames=16, num_sample=2, num_segments=1, num_workers=5, opt='adamw', opt_betas=[0.9, 0.999], opt_eps=1e-08, output_dir='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400', pin_mem=True, rank=0, recount=1, remode='pixel', remove_pos_emb=False, reprob=0.25, resplit=False, resume='', resume_best=False, sampling_rate=4, save_ckpt=True, save_ckpt_freq=50, seed=0, short_side_size=224, smoothing=0.1, start_epoch=0, test_num_crop=3, test_num_segment=5, train_interpolation='bicubic', tubelet_size=2, update_freq=2, use_checkpoint=True, use_cls_token=False, use_mean_pooling=True, warmup_epochs=0, warmup_lr=0.001, warmup_steps=-1, weight_decay=0.05, weight_decay_end=None, world_size=1)
+Namespace(aa='rand-m7-n4-mstd0.5-inc1', attn_drop_rate=0.0, auto_resume=True, batch_size=4, clip_grad=None, color_jitter=0.4, crop_pct=None, cutmix=1.0, cutmix_minmax=None, data_path='/data/i5O/kinetics-dataset/annotations', data_root='/data/i5O/kinetics400/train/', data_set='Kinetics-400', deepscale=False, deepscale_config=None, deepspeed=False, deepspeed_config='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400/deepspeed_config.json', deepspeed_mpi=False, device='cuda', disable_eval_during_finetuning=False, dist_backend='nccl', dist_eval=True, dist_on_itp=False, dist_url='env://', distributed=True, drop=0.0, drop_path=0.1, enable_deepspeed=True, epochs=150, eval=False, eval_data_path=None, eval_log_name='log_eval', fc_drop_rate=0.0, finetune='/data/i5O/pretrained/mvd_s_from_b_ckpt_399.pth', gpu=0, imagenet_default_mean_and_std=True, init_scale=0.001, input_size=224, layer_decay=0.75, local_rank=0, log_dir='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400', lr=0.001, merge_test=False, min_lr=0.001, mixup=0.8, mixup_mode='batch', mixup_prob=1.0, mixup_switch_prob=0.5, model='vit_small_patch16_224', model_ema=False, model_ema_decay=0.9999, model_ema_force_cpu=False, model_key='model|module', model_prefix='', momentum=0.9, nb_classes=400, no_save_best_ckpt=True, num_frames=16, num_sample=2, num_segments=1, num_workers=4, opt='adamw', opt_betas=[0.9, 0.999], opt_eps=1e-08, output_dir='OUTPUT/mvd_vit_small_with_vit_base_teacher_k400_epoch_400/finetune_on_k400', pin_mem=True, rank=0, recount=1, remode='pixel', remove_pos_emb=False, reprob=0.25, resplit=False, resume='', resume_best=False, sampling_rate=4, save_ckpt=True, save_ckpt_freq=50, seed=0, short_side_size=224, smoothing=0.1, start_epoch=0, test_num_crop=3, test_num_segment=5, train_interpolation='bicubic', tubelet_size=2, update_freq=4, use_checkpoint=False, use_cls_token=False, use_mean_pooling=True, warmup_epochs=0, warmup_lr=0.001, warmup_steps=-1, weight_decay=0.05, weight_decay_end=None, world_size=1)
 Patch size = (16, 16)
                                                         0    1
 0       /data/i5O/kinetics400/train/-3B32lodo2M_000059...    0
@@ -46,7 +46,7 @@ Number of the class = 400
 
 [19879 rows x 2 columns]
 Number of the class = 400
-Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7f8f5327de20>
+Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7fed0a0eee20>
 Mixup is activated!
 Load ckpt from /data/i5O/pretrained/mvd_s_from_b_ckpt_399.pth
 Load state_dict by model_key = model
@@ -269,13 +269,13 @@ Model = VisionTransformer(
   (head): Linear(in_features=384, out_features=400, bias=True)
 )
 number of params: 22033936
-LR = 0.00003125
-Batch size = 8
-Update frequent = 2
+LR = 0.00006250
+Batch size = 16
+Update frequent = 4
 Number of training examples = 241207
-Number of training training per epoch = 30150
+Number of training training per epoch = 15075
 Assigned values = [0.023757264018058777, 0.03167635202407837, 0.04223513603210449, 0.056313514709472656, 0.07508468627929688, 0.1001129150390625, 0.13348388671875, 0.177978515625, 0.2373046875, 0.31640625, 0.421875, 0.5625, 0.75, 1.0]
-Skip weight decay list:  {'pos_embed', 'cls_token'}
+Skip weight decay list:  {'cls_token', 'pos_embed'}
 Param groups = {
   "layer_0_decay": {
     "weight_decay": 0.05,
@@ -608,13 +608,13 @@ Param groups = {
     "lr_scale": 1.0
   }
 }
-[2023-07-14 13:56:58,064] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed info: version=0.5.8, git-hash=unknown, git-branch=unknown
-[2023-07-14 13:56:58,073] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed groups
-[2023-07-14 13:56:58,074] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed model parallel group with size 1
-[2023-07-14 13:56:58,074] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed expert parallel group with size 1
-[2023-07-14 13:56:58,075] [INFO] [logging.py:69:log_dist] [Rank 0] creating expert data parallel process group with ranks: [0]
-[2023-07-14 13:56:58,075] [INFO] [logging.py:69:log_dist] [Rank 0] creating expert parallel process group with ranks: [0]
-[2023-07-14 13:56:58,351] [INFO] [engine.py:278:__init__] DeepSpeed Flops Profiler Enabled: False
+[2023-07-14 15:54:17,363] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed info: version=0.5.8, git-hash=unknown, git-branch=unknown
+[2023-07-14 15:54:17,372] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed groups
+[2023-07-14 15:54:17,372] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed model parallel group with size 1
+[2023-07-14 15:54:17,373] [INFO] [logging.py:69:log_dist] [Rank 0] initializing deepspeed expert parallel group with size 1
+[2023-07-14 15:54:17,373] [INFO] [logging.py:69:log_dist] [Rank 0] creating expert data parallel process group with ranks: [0]
+[2023-07-14 15:54:17,373] [INFO] [logging.py:69:log_dist] [Rank 0] creating expert parallel process group with ranks: [0]
+[2023-07-14 15:54:17,654] [INFO] [engine.py:278:__init__] DeepSpeed Flops Profiler Enabled: False
 Installed CUDA version 11.4 does not match the version torch was compiled with 11.1 but since the APIs are compatible, accepting this combination
 Using /root/.cache/torch_extensions/py38_cu111 as PyTorch extensions root...
 Detected CUDA files, patching ldflags
@@ -623,16 +623,16 @@ Building extension module fused_adam...
 Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
 ninja: no work to do.
 Loading extension module fused_adam...
-Time to load fused_adam op: 0.9747929573059082 seconds
-[2023-07-14 13:57:00,305] [INFO] [engine.py:1108:_configure_optimizer] Using DeepSpeed Optimizer param name adam as basic optimizer
-[2023-07-14 13:57:00,311] [INFO] [engine.py:1116:_configure_optimizer] DeepSpeed Basic Optimizer = FusedAdam
-[2023-07-14 13:57:00,311] [INFO] [logging.py:69:log_dist] [Rank 0] Creating fp16 optimizer with dynamic loss scale
-[2023-07-14 13:57:00,321] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed Final Optimizer = adam
-[2023-07-14 13:57:00,321] [INFO] [engine.py:808:_configure_lr_scheduler] DeepSpeed using client LR scheduler
-[2023-07-14 13:57:00,322] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
-[2023-07-14 13:57:00,322] [INFO] [logging.py:69:log_dist] [Rank 0] step=0, skipped=0, lr=[0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001], mom=[[0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999]]
-[2023-07-14 13:57:00,322] [INFO] [config.py:1059:print] DeepSpeedEngine configuration:
-[2023-07-14 13:57:00,322] [INFO] [config.py:1063:print]   activation_checkpointing_config  {
+Time to load fused_adam op: 0.9816381931304932 seconds
+[2023-07-14 15:54:19,600] [INFO] [engine.py:1108:_configure_optimizer] Using DeepSpeed Optimizer param name adam as basic optimizer
+[2023-07-14 15:54:19,608] [INFO] [engine.py:1116:_configure_optimizer] DeepSpeed Basic Optimizer = FusedAdam
+[2023-07-14 15:54:19,608] [INFO] [logging.py:69:log_dist] [Rank 0] Creating fp16 optimizer with dynamic loss scale
+[2023-07-14 15:54:19,618] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed Final Optimizer = adam
+[2023-07-14 15:54:19,619] [INFO] [engine.py:808:_configure_lr_scheduler] DeepSpeed using client LR scheduler
+[2023-07-14 15:54:19,619] [INFO] [logging.py:69:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2023-07-14 15:54:19,619] [INFO] [logging.py:69:log_dist] [Rank 0] step=0, skipped=0, lr=[0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001, 0.001], mom=[[0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999]]
+[2023-07-14 15:54:19,619] [INFO] [config.py:1059:print] DeepSpeedEngine configuration:
+[2023-07-14 15:54:19,619] [INFO] [config.py:1063:print]   activation_checkpointing_config  {
     "partition_activations": false, 
     "contiguous_memory_optimization": false, 
     "cpu_checkpointing": false, 
@@ -640,10 +640,10 @@ Time to load fused_adam op: 0.9747929573059082 seconds
     "synchronize_checkpoint_boundary": false, 
     "profile": false
 }
-[2023-07-14 13:57:00,322] [INFO] [config.py:1063:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
-[2023-07-14 13:57:00,322] [INFO] [config.py:1063:print]   amp_enabled .................. False
-[2023-07-14 13:57:00,322] [INFO] [config.py:1063:print]   amp_params ................... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   autotuning_config ............ {
+[2023-07-14 15:54:19,619] [INFO] [config.py:1063:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   amp_enabled .................. False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   amp_params ................... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   autotuning_config ............ {
     "enabled": false, 
     "start_step": null, 
     "end_step": null, 
@@ -668,26 +668,26 @@ Time to load fused_adam op: 0.9747929573059082 seconds
     "min_train_micro_batch_size_per_gpu": 1, 
     "num_tuning_micro_batch_sizes": 3
 }
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   bfloat16_enabled ............. False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   checkpoint_tag_validation_enabled  True
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   checkpoint_tag_validation_fail  False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   communication_data_type ...... None
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   curriculum_enabled ........... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   curriculum_params ............ False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   dataloader_drop_last ......... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   disable_allgather ............ False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   dump_state ................... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   dynamic_loss_scale_args ...... {'init_scale': 128, 'scale_window': 128, 'delayed_shift': 2, 'min_scale': 1}
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_enabled ........... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_gas_boundary_resolution  1
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_layer_name ........ bert.encoder.layer
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_layer_num ......... 0
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_max_iter .......... 100
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_stability ......... 1e-06
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_tol ............... 0.01
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   eigenvalue_verbose ........... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   elasticity_enabled ........... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   flops_profiler_config ........ {
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   bfloat16_enabled ............. False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   checkpoint_tag_validation_enabled  True
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   checkpoint_tag_validation_fail  False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   communication_data_type ...... None
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   curriculum_enabled ........... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   curriculum_params ............ False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   dataloader_drop_last ......... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   disable_allgather ............ False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   dump_state ................... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   dynamic_loss_scale_args ...... {'init_scale': 128, 'scale_window': 128, 'delayed_shift': 2, 'min_scale': 1}
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_enabled ........... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_gas_boundary_resolution  1
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_layer_num ......... 0
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_max_iter .......... 100
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_stability ......... 1e-06
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_tol ............... 0.01
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   eigenvalue_verbose ........... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   elasticity_enabled ........... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   flops_profiler_config ........ {
     "enabled": false, 
     "profile_step": 1, 
     "module_depth": -1, 
@@ -695,48 +695,48 @@ Time to load fused_adam op: 0.9747929573059082 seconds
     "detailed": true, 
     "output_file": null
 }
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   fp16_enabled ................. True
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   fp16_master_weights_and_gradients  False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   fp16_mixed_quantize .......... False
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   global_rank .................. 0
-[2023-07-14 13:57:00,323] [INFO] [config.py:1063:print]   gradient_accumulation_steps .. 2
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   gradient_clipping ............ 0.0
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   gradient_predivide_factor .... 1.0
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   initial_dynamic_scale ........ 128
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   loss_scale ................... 0
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   memory_breakdown ............. False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   optimizer_legacy_fusion ...... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   optimizer_name ............... adam
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   optimizer_params ............. {'lr': 0.001, 'weight_decay': 0.05, 'bias_correction': True, 'betas': [0.9, 0.999], 'eps': 1e-08}
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   pld_enabled .................. False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   pld_params ................... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   prescale_gradients ........... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_change_rate ......... 0.001
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_groups .............. 1
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_offset .............. 1000
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_period .............. 1000
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_rounding ............ 0
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_start_bits .......... 16
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_target_bits ......... 8
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_training_enabled .... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_type ................ 0
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   quantize_verbose ............. False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   scheduler_name ............... None
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   scheduler_params ............. None
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   sparse_attention ............. None
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   sparse_gradients_enabled ..... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   steps_per_print .............. 1000
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   tensorboard_enabled .......... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   tensorboard_job_name ......... DeepSpeedJobName
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   tensorboard_output_path ...... 
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   train_batch_size ............. 8
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   train_micro_batch_size_per_gpu  4
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   use_quantizer_kernel ......... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   wall_clock_breakdown ......... False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   world_size ................... 1
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   zero_allow_untested_optimizer  False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   zero_config .................. {
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   fp16_enabled ................. True
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   fp16_master_weights_and_gradients  False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   fp16_mixed_quantize .......... False
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   global_rank .................. 0
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   gradient_accumulation_steps .. 4
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   gradient_clipping ............ 0.0
+[2023-07-14 15:54:19,620] [INFO] [config.py:1063:print]   gradient_predivide_factor .... 1.0
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   initial_dynamic_scale ........ 128
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   loss_scale ................... 0
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   memory_breakdown ............. False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   optimizer_legacy_fusion ...... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   optimizer_name ............... adam
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   optimizer_params ............. {'lr': 0.001, 'weight_decay': 0.05, 'bias_correction': True, 'betas': [0.9, 0.999], 'eps': 1e-08}
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0}
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   pld_enabled .................. False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   pld_params ................... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   prescale_gradients ........... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_change_rate ......... 0.001
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_groups .............. 1
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_offset .............. 1000
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_period .............. 1000
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_rounding ............ 0
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_start_bits .......... 16
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_target_bits ......... 8
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_training_enabled .... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_type ................ 0
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   quantize_verbose ............. False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   scheduler_name ............... None
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   scheduler_params ............. None
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   sparse_attention ............. None
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   sparse_gradients_enabled ..... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   steps_per_print .............. 1000
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   tensorboard_enabled .......... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   tensorboard_job_name ......... DeepSpeedJobName
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   tensorboard_output_path ...... 
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   train_batch_size ............. 16
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   train_micro_batch_size_per_gpu  4
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   use_quantizer_kernel ......... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   wall_clock_breakdown ......... False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   world_size ................... 1
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   zero_allow_untested_optimizer  False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   zero_config .................. {
     "stage": 0, 
     "contiguous_gradients": true, 
     "reduce_scatter": true, 
@@ -758,10 +758,10 @@ Time to load fused_adam op: 0.9747929573059082 seconds
     "round_robin_gradients": false, 
     "legacy_stage1": false
 }
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   zero_enabled ................. False
-[2023-07-14 13:57:00,324] [INFO] [config.py:1063:print]   zero_optimization_stage ...... 0
-[2023-07-14 13:57:00,325] [INFO] [config.py:1065:print]   json = {
-    "train_batch_size": 8, 
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   zero_enabled ................. False
+[2023-07-14 15:54:19,621] [INFO] [config.py:1063:print]   zero_optimization_stage ...... 0
+[2023-07-14 15:54:19,621] [INFO] [config.py:1065:print]   json = {
+    "train_batch_size": 16, 
     "train_micro_batch_size_per_gpu": 4, 
     "steps_per_print": 1000, 
     "optimizer": {
@@ -788,427 +788,14 @@ Building extension module utils...
 Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
 ninja: no work to do.
 Loading extension module utils...
-Time to load utils op: 0.9732608795166016 seconds
-model.gradient_accumulation_steps() = 2
+Time to load utils op: 0.9622378349304199 seconds
+model.gradient_accumulation_steps() = 4
 Use step level LR scheduler!
 Set warmup steps = 0
 Set warmup steps = 0
 Max WD = 0.0500000, Min WD = 0.0500000
 criterion = SoftTargetCrossEntropy()
 Start training for 150 epochs
-Epoch: [0]  [    0/60301]  eta: 2 days, 18:56:32  lr: 0.000031  min_lr: 0.000001  loss: 5.9922 (5.9922)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 3.9965  data: 3.5446  max mem: 1641
-Epoch: [0]  [   10/60301]  eta: 14:47:01  lr: 0.000031  min_lr: 0.000001  loss: 5.9922 (5.9921)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.8827  data: 0.3315  max mem: 1686
-Epoch: [0]  [   20/60301]  eta: 12:11:43  lr: 0.000031  min_lr: 0.000001  loss: 5.9921 (5.9919)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5649  data: 0.0053  max mem: 1686
-Epoch: [0]  [   30/60301]  eta: 11:16:23  lr: 0.000031  min_lr: 0.000001  loss: 5.9921 (5.9919)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5582  data: 0.0004  max mem: 1686
-Epoch: [0]  [   40/60301]  eta: 10:47:59  lr: 0.000031  min_lr: 0.000001  loss: 5.9918 (5.9909)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5579  data: 0.0014  max mem: 1686
-Epoch: [0]  [   50/60301]  eta: 10:31:18  lr: 0.000031  min_lr: 0.000001  loss: 5.9904 (5.9912)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5594  data: 0.0043  max mem: 1686
-Epoch: [0]  [   60/60301]  eta: 10:24:04  lr: 0.000031  min_lr: 0.000001  loss: 5.9948 (5.9920)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5732  data: 0.0173  max mem: 1686
-Epoch: [0]  [   70/60301]  eta: 10:32:45  lr: 0.000031  min_lr: 0.000001  loss: 5.9984 (5.9922)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6345  data: 0.0795  max mem: 1686
-Epoch: [0]  [   80/60301]  eta: 10:23:18  lr: 0.000031  min_lr: 0.000001  loss: 5.9843 (5.9906)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6193  data: 0.0654  max mem: 1686
-Epoch: [0]  [   90/60301]  eta: 10:15:34  lr: 0.000031  min_lr: 0.000001  loss: 5.9785 (5.9885)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5534  data: 0.0004  max mem: 1686
-Epoch: [0]  [  100/60301]  eta: 10:10:52  lr: 0.000031  min_lr: 0.000001  loss: 5.9852 (5.9891)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5595  data: 0.0064  max mem: 1686
-Epoch: [0]  [  110/60301]  eta: 10:20:17  lr: 0.000031  min_lr: 0.000001  loss: 5.9865 (5.9874)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6407  data: 0.0866  max mem: 1686
-Epoch: [0]  [  120/60301]  eta: 10:16:01  lr: 0.000031  min_lr: 0.000001  loss: 5.9564 (5.9870)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6411  data: 0.0872  max mem: 1686
-Epoch: [0]  [  130/60301]  eta: 10:11:05  lr: 0.000031  min_lr: 0.000001  loss: 5.9937 (5.9873)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5595  data: 0.0069  max mem: 1686
-Epoch: [0]  [  140/60301]  eta: 10:07:01  lr: 0.000031  min_lr: 0.000001  loss: 6.0003 (5.9884)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5523  data: 0.0005  max mem: 1686
-Epoch: [0]  [  150/60301]  eta: 10:03:34  lr: 0.000031  min_lr: 0.000001  loss: 5.9927 (5.9886)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5543  data: 0.0004  max mem: 1686
-Epoch: [0]  [  160/60301]  eta: 10:07:37  lr: 0.000031  min_lr: 0.000001  loss: 5.9663 (5.9862)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6118  data: 0.0569  max mem: 1686
-Epoch: [0]  [  170/60301]  eta: 10:04:45  lr: 0.000031  min_lr: 0.000001  loss: 5.9425 (5.9845)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6138  data: 0.0578  max mem: 1686
-Epoch: [0]  [  180/60301]  eta: 10:02:09  lr: 0.000031  min_lr: 0.000001  loss: 5.9846 (5.9866)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5587  data: 0.0034  max mem: 1686
-Epoch: [0]  [  190/60301]  eta: 9:59:37  lr: 0.000031  min_lr: 0.000001  loss: 5.9858 (5.9861)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0025  max mem: 1686
-Epoch: [0]  [  200/60301]  eta: 9:57:23  lr: 0.000031  min_lr: 0.000001  loss: 5.9750 (5.9862)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5552  data: 0.0004  max mem: 1686
-Epoch: [0]  [  210/60301]  eta: 9:55:25  lr: 0.000031  min_lr: 0.000001  loss: 5.9785 (5.9850)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5563  data: 0.0004  max mem: 1686
-Epoch: [0]  [  220/60301]  eta: 9:53:23  lr: 0.000031  min_lr: 0.000001  loss: 5.9584 (5.9841)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5545  data: 0.0004  max mem: 1686
-Epoch: [0]  [  230/60301]  eta: 9:51:39  lr: 0.000031  min_lr: 0.000001  loss: 5.9413 (5.9830)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5533  data: 0.0012  max mem: 1686
-Epoch: [0]  [  240/60301]  eta: 9:50:04  lr: 0.000031  min_lr: 0.000001  loss: 5.9655 (5.9834)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5550  data: 0.0012  max mem: 1686
-Epoch: [0]  [  250/60301]  eta: 9:48:35  lr: 0.000031  min_lr: 0.000001  loss: 5.9921 (5.9836)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.5550  data: 0.0004  max mem: 1686
-[2023-07-14 13:59:46,978] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 13:59:46,979] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 128 to 256
-Epoch: [0]  [  260/60301]  eta: 9:47:14  lr: 0.000031  min_lr: 0.000001  loss: 5.9701 (5.9832)  loss_scale: 128.0000 (129.9617)  weight_decay: 0.0500 (0.0500)  time: 0.5550  data: 0.0004  max mem: 1686
-Epoch: [0]  [  270/60301]  eta: 9:45:59  lr: 0.000031  min_lr: 0.000001  loss: 5.9623 (5.9823)  loss_scale: 256.0000 (134.6125)  weight_decay: 0.0500 (0.0500)  time: 0.5555  data: 0.0004  max mem: 1686
-Epoch: [0]  [  280/60301]  eta: 9:44:46  lr: 0.000031  min_lr: 0.000001  loss: 5.9503 (5.9809)  loss_scale: 256.0000 (138.9324)  weight_decay: 0.0500 (0.0500)  time: 0.5550  data: 0.0014  max mem: 1686
-Epoch: [0]  [  290/60301]  eta: 9:43:33  lr: 0.000031  min_lr: 0.000001  loss: 5.9510 (5.9810)  loss_scale: 256.0000 (142.9553)  weight_decay: 0.0500 (0.0500)  time: 0.5532  data: 0.0014  max mem: 1686
-Epoch: [0]  [  300/60301]  eta: 9:42:31  lr: 0.000031  min_lr: 0.000001  loss: 6.0006 (5.9819)  loss_scale: 256.0000 (146.7110)  weight_decay: 0.0500 (0.0500)  time: 0.5535  data: 0.0004  max mem: 1686
-Epoch: [0]  [  310/60301]  eta: 9:41:26  lr: 0.000031  min_lr: 0.000001  loss: 6.0006 (5.9816)  loss_scale: 256.0000 (150.2251)  weight_decay: 0.0500 (0.0500)  time: 0.5534  data: 0.0004  max mem: 1686
-Epoch: [0]  [  320/60301]  eta: 9:40:37  lr: 0.000031  min_lr: 0.000001  loss: 5.9626 (5.9811)  loss_scale: 256.0000 (153.5202)  weight_decay: 0.0500 (0.0500)  time: 0.5551  data: 0.0014  max mem: 1686
-Epoch: [0]  [  330/60301]  eta: 9:39:44  lr: 0.000031  min_lr: 0.000001  loss: 5.9363 (5.9806)  loss_scale: 256.0000 (156.6163)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0014  max mem: 1686
-Epoch: [0]  [  340/60301]  eta: 9:38:59  lr: 0.000031  min_lr: 0.000001  loss: 5.9593 (5.9814)  loss_scale: 256.0000 (159.5308)  weight_decay: 0.0500 (0.0500)  time: 0.5562  data: 0.0004  max mem: 1686
-Epoch: [0]  [  350/60301]  eta: 9:38:10  lr: 0.000031  min_lr: 0.000001  loss: 5.9501 (5.9800)  loss_scale: 256.0000 (162.2792)  weight_decay: 0.0500 (0.0500)  time: 0.5561  data: 0.0004  max mem: 1686
-Epoch: [0]  [  360/60301]  eta: 9:41:54  lr: 0.000031  min_lr: 0.000001  loss: 5.9649 (5.9806)  loss_scale: 256.0000 (164.8753)  weight_decay: 0.0500 (0.0500)  time: 0.6355  data: 0.0822  max mem: 1686
-video cannot be loaded by decord:  /data/i5O/kinetics400/train/w5ax4GiTkKg_000088_000098.mp4
-/models/mvd/kinetics.py:137: UserWarning: video /data/i5O/kinetics400/train/w5ax4GiTkKg_000088_000098.mp4 not correctly loaded during training
-  warnings.warn(
-Epoch: [0]  [  370/60301]  eta: 9:41:03  lr: 0.000031  min_lr: 0.000001  loss: 5.9808 (5.9805)  loss_scale: 256.0000 (167.3315)  weight_decay: 0.0500 (0.0500)  time: 0.6356  data: 0.0821  max mem: 1686
-Epoch: [0]  [  380/60301]  eta: 9:43:21  lr: 0.000031  min_lr: 0.000001  loss: 6.0127 (5.9814)  loss_scale: 256.0000 (169.6588)  weight_decay: 0.0500 (0.0500)  time: 0.6140  data: 0.0615  max mem: 1686
-Epoch: [0]  [  390/60301]  eta: 9:42:30  lr: 0.000031  min_lr: 0.000001  loss: 5.9877 (5.9809)  loss_scale: 256.0000 (171.8670)  weight_decay: 0.0500 (0.0500)  time: 0.6142  data: 0.0616  max mem: 1686
-Epoch: [0]  [  400/60301]  eta: 9:43:51  lr: 0.000031  min_lr: 0.000001  loss: 5.9588 (5.9810)  loss_scale: 256.0000 (173.9651)  weight_decay: 0.0500 (0.0500)  time: 0.5982  data: 0.0423  max mem: 1686
-Epoch: [0]  [  410/60301]  eta: 9:43:06  lr: 0.000031  min_lr: 0.000001  loss: 5.9792 (5.9812)  loss_scale: 256.0000 (175.9611)  weight_decay: 0.0500 (0.0500)  time: 0.5996  data: 0.0433  max mem: 1686
-Epoch: [0]  [  420/60301]  eta: 9:42:15  lr: 0.000031  min_lr: 0.000001  loss: 5.9882 (5.9811)  loss_scale: 256.0000 (177.8622)  weight_decay: 0.0500 (0.0500)  time: 0.5550  data: 0.0014  max mem: 1686
-Epoch: [0]  [  430/60301]  eta: 9:41:32  lr: 0.000031  min_lr: 0.000001  loss: 5.9323 (5.9798)  loss_scale: 256.0000 (179.6752)  weight_decay: 0.0500 (0.0500)  time: 0.5545  data: 0.0013  max mem: 1686
-Epoch: [0]  [  440/60301]  eta: 9:40:47  lr: 0.000031  min_lr: 0.000001  loss: 5.9255 (5.9796)  loss_scale: 256.0000 (181.4059)  weight_decay: 0.0500 (0.0500)  time: 0.5555  data: 0.0013  max mem: 1686
-Epoch: [0]  [  450/60301]  eta: 9:40:03  lr: 0.000031  min_lr: 0.000001  loss: 5.9884 (5.9797)  loss_scale: 256.0000 (183.0599)  weight_decay: 0.0500 (0.0500)  time: 0.5538  data: 0.0004  max mem: 1686
-Epoch: [0]  [  460/60301]  eta: 9:33:36  lr: 0.000031  min_lr: 0.000001  loss: 6.0084 (5.9803)  loss_scale: 256.0000 (184.6421)  weight_decay: 0.0500 (0.0500)  time: 0.4205  data: 0.0004  max mem: 1686
-Epoch: [0]  [  470/60301]  eta: 9:31:08  lr: 0.000031  min_lr: 0.000001  loss: 5.9967 (5.9803)  loss_scale: 256.0000 (186.1571)  weight_decay: 0.0500 (0.0500)  time: 0.3755  data: 0.1615  max mem: 1686
-Epoch: [0]  [  480/60301]  eta: 9:28:38  lr: 0.000031  min_lr: 0.000001  loss: 5.9311 (5.9797)  loss_scale: 256.0000 (187.6091)  weight_decay: 0.0500 (0.0500)  time: 0.4599  data: 0.3190  max mem: 1686
-Epoch: [0]  [  490/60301]  eta: 9:27:21  lr: 0.000031  min_lr: 0.000001  loss: 5.9347 (5.9793)  loss_scale: 256.0000 (189.0020)  weight_decay: 0.0500 (0.0500)  time: 0.4840  data: 0.3410  max mem: 1686
-Epoch: [0]  [  500/60301]  eta: 9:29:05  lr: 0.000031  min_lr: 0.000001  loss: 5.9673 (5.9796)  loss_scale: 256.0000 (190.3393)  weight_decay: 0.0500 (0.0500)  time: 0.5864  data: 0.2773  max mem: 1686
-Epoch: [0]  [  510/60301]  eta: 9:28:41  lr: 0.000031  min_lr: 0.000001  loss: 5.9847 (5.9796)  loss_scale: 256.0000 (191.6243)  weight_decay: 0.0500 (0.0500)  time: 0.6083  data: 0.0942  max mem: 1686
-[2023-07-14 14:02:08,808] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:02:08,809] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 256 to 512
-Epoch: [0]  [  520/60301]  eta: 9:34:59  lr: 0.000031  min_lr: 0.000001  loss: 5.9489 (5.9794)  loss_scale: 256.0000 (196.7908)  weight_decay: 0.0500 (0.0500)  time: 0.7302  data: 0.1780  max mem: 1686
-Epoch: [0]  [  530/60301]  eta: 9:34:25  lr: 0.000031  min_lr: 0.000001  loss: 5.9222 (5.9784)  loss_scale: 512.0000 (202.7269)  weight_decay: 0.0500 (0.0500)  time: 0.7287  data: 0.1780  max mem: 1686
-Epoch: [0]  [  540/60301]  eta: 9:33:53  lr: 0.000031  min_lr: 0.000001  loss: 5.9215 (5.9775)  loss_scale: 512.0000 (208.4436)  weight_decay: 0.0500 (0.0500)  time: 0.5526  data: 0.0004  max mem: 1686
-Epoch: [0]  [  550/60301]  eta: 9:33:24  lr: 0.000031  min_lr: 0.000001  loss: 5.9463 (5.9777)  loss_scale: 512.0000 (213.9528)  weight_decay: 0.0500 (0.0500)  time: 0.5539  data: 0.0005  max mem: 1686
-Epoch: [0]  [  560/60301]  eta: 9:32:57  lr: 0.000031  min_lr: 0.000001  loss: 5.9635 (5.9778)  loss_scale: 512.0000 (219.2656)  weight_decay: 0.0500 (0.0500)  time: 0.5552  data: 0.0005  max mem: 1686
-Epoch: [0]  [  570/60301]  eta: 9:32:27  lr: 0.000031  min_lr: 0.000001  loss: 5.9739 (5.9777)  loss_scale: 512.0000 (224.3923)  weight_decay: 0.0500 (0.0500)  time: 0.5541  data: 0.0004  max mem: 1686
-Epoch: [0]  [  580/60301]  eta: 9:32:02  lr: 0.000031  min_lr: 0.000001  loss: 5.9566 (5.9773)  loss_scale: 512.0000 (229.3425)  weight_decay: 0.0500 (0.0500)  time: 0.5543  data: 0.0011  max mem: 1686
-Epoch: [0]  [  590/60301]  eta: 9:31:42  lr: 0.000031  min_lr: 0.000001  loss: 5.9323 (5.9766)  loss_scale: 512.0000 (234.1252)  weight_decay: 0.0500 (0.0500)  time: 0.5580  data: 0.0032  max mem: 1686
-Epoch: [0]  [  600/60301]  eta: 9:31:29  lr: 0.000031  min_lr: 0.000001  loss: 5.9229 (5.9760)  loss_scale: 512.0000 (238.7488)  weight_decay: 0.0500 (0.0500)  time: 0.5636  data: 0.0085  max mem: 1686
-Epoch: [0]  [  610/60301]  eta: 9:32:02  lr: 0.000031  min_lr: 0.000001  loss: 5.9202 (5.9751)  loss_scale: 512.0000 (243.2209)  weight_decay: 0.0500 (0.0500)  time: 0.5908  data: 0.0362  max mem: 1686
-Epoch: [0]  [  620/60301]  eta: 9:31:45  lr: 0.000031  min_lr: 0.000001  loss: 5.9087 (5.9745)  loss_scale: 512.0000 (247.5491)  weight_decay: 0.0500 (0.0500)  time: 0.5887  data: 0.0345  max mem: 1686
-Epoch: [0]  [  630/60301]  eta: 9:31:19  lr: 0.000031  min_lr: 0.000001  loss: 5.9256 (5.9746)  loss_scale: 512.0000 (251.7401)  weight_decay: 0.0500 (0.0500)  time: 0.5583  data: 0.0047  max mem: 1686
-Epoch: [0]  [  640/60301]  eta: 9:30:51  lr: 0.000031  min_lr: 0.000001  loss: 5.9695 (5.9752)  loss_scale: 512.0000 (255.8003)  weight_decay: 0.0500 (0.0500)  time: 0.5524  data: 0.0004  max mem: 1686
-Epoch: [0]  [  650/60301]  eta: 9:30:29  lr: 0.000031  min_lr: 0.000001  loss: 5.9684 (5.9748)  loss_scale: 512.0000 (259.7358)  weight_decay: 0.0500 (0.0500)  time: 0.5537  data: 0.0004  max mem: 1686
-Epoch: [0]  [  660/60301]  eta: 9:30:05  lr: 0.000031  min_lr: 0.000001  loss: 5.9088 (5.9743)  loss_scale: 512.0000 (263.5522)  weight_decay: 0.0500 (0.0500)  time: 0.5547  data: 0.0004  max mem: 1686
-Epoch: [0]  [  670/60301]  eta: 9:29:45  lr: 0.000031  min_lr: 0.000001  loss: 5.9258 (5.9740)  loss_scale: 512.0000 (267.2548)  weight_decay: 0.0500 (0.0500)  time: 0.5554  data: 0.0004  max mem: 1686
-Epoch: [0]  [  680/60301]  eta: 9:29:23  lr: 0.000031  min_lr: 0.000001  loss: 5.9258 (5.9730)  loss_scale: 512.0000 (270.8488)  weight_decay: 0.0500 (0.0500)  time: 0.5562  data: 0.0004  max mem: 1686
-Epoch: [0]  [  690/60301]  eta: 9:28:59  lr: 0.000031  min_lr: 0.000001  loss: 5.8844 (5.9724)  loss_scale: 512.0000 (274.3386)  weight_decay: 0.0500 (0.0500)  time: 0.5534  data: 0.0004  max mem: 1686
-Epoch: [0]  [  700/60301]  eta: 9:28:42  lr: 0.000031  min_lr: 0.000001  loss: 5.8844 (5.9717)  loss_scale: 512.0000 (277.7290)  weight_decay: 0.0500 (0.0500)  time: 0.5554  data: 0.0013  max mem: 1686
-Epoch: [0]  [  710/60301]  eta: 9:30:09  lr: 0.000031  min_lr: 0.000001  loss: 5.8815 (5.9715)  loss_scale: 512.0000 (281.0239)  weight_decay: 0.0500 (0.0500)  time: 0.6209  data: 0.0644  max mem: 1686
-Epoch: [0]  [  720/60301]  eta: 9:30:43  lr: 0.000031  min_lr: 0.000001  loss: 5.9364 (5.9709)  loss_scale: 512.0000 (284.2275)  weight_decay: 0.0500 (0.0500)  time: 0.6526  data: 0.0985  max mem: 1686
-Epoch: [0]  [  730/60301]  eta: 9:30:22  lr: 0.000031  min_lr: 0.000001  loss: 5.9364 (5.9707)  loss_scale: 512.0000 (287.3434)  weight_decay: 0.0500 (0.0500)  time: 0.5892  data: 0.0355  max mem: 1686
-Epoch: [0]  [  740/60301]  eta: 9:30:01  lr: 0.000031  min_lr: 0.000001  loss: 5.9553 (5.9705)  loss_scale: 512.0000 (290.3752)  weight_decay: 0.0500 (0.0500)  time: 0.5559  data: 0.0014  max mem: 1686
-Epoch: [0]  [  750/60301]  eta: 9:30:47  lr: 0.000031  min_lr: 0.000001  loss: 5.9295 (5.9698)  loss_scale: 512.0000 (293.3262)  weight_decay: 0.0500 (0.0500)  time: 0.5977  data: 0.0445  max mem: 1686
-Epoch: [0]  [  760/60301]  eta: 9:30:25  lr: 0.000031  min_lr: 0.000001  loss: 5.9324 (5.9696)  loss_scale: 512.0000 (296.1997)  weight_decay: 0.0500 (0.0500)  time: 0.5971  data: 0.0446  max mem: 1686
-[2023-07-14 14:04:38,044] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:04:38,045] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 512 to 1024
-Epoch: [0]  [  770/60301]  eta: 9:30:05  lr: 0.000031  min_lr: 0.000001  loss: 5.9524 (5.9692)  loss_scale: 512.0000 (300.3268)  weight_decay: 0.0500 (0.0500)  time: 0.5553  data: 0.0014  max mem: 1686
-Epoch: [0]  [  780/60301]  eta: 9:29:46  lr: 0.000031  min_lr: 0.000001  loss: 5.9267 (5.9688)  loss_scale: 1024.0000 (309.5928)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0004  max mem: 1686
-Epoch: [0]  [  790/60301]  eta: 9:29:27  lr: 0.000031  min_lr: 0.000001  loss: 5.9322 (5.9689)  loss_scale: 1024.0000 (318.6245)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0004  max mem: 1686
-Epoch: [0]  [  800/60301]  eta: 9:31:29  lr: 0.000031  min_lr: 0.000001  loss: 5.9198 (5.9681)  loss_scale: 1024.0000 (327.4307)  weight_decay: 0.0500 (0.0500)  time: 0.6514  data: 0.0978  max mem: 1686
-Epoch: [0]  [  810/60301]  eta: 9:31:09  lr: 0.000031  min_lr: 0.000001  loss: 5.9098 (5.9677)  loss_scale: 1024.0000 (336.0197)  weight_decay: 0.0500 (0.0500)  time: 0.6515  data: 0.0985  max mem: 1686
-Epoch: [0]  [  820/60301]  eta: 9:30:48  lr: 0.000031  min_lr: 0.000001  loss: 5.9355 (5.9674)  loss_scale: 1024.0000 (344.3995)  weight_decay: 0.0500 (0.0500)  time: 0.5564  data: 0.0011  max mem: 1686
-Epoch: [0]  [  830/60301]  eta: 9:30:29  lr: 0.000031  min_lr: 0.000001  loss: 5.9253 (5.9668)  loss_scale: 1024.0000 (352.5776)  weight_decay: 0.0500 (0.0500)  time: 0.5563  data: 0.0004  max mem: 1686
-Epoch: [0]  [  840/60301]  eta: 9:30:07  lr: 0.000031  min_lr: 0.000001  loss: 5.9210 (5.9662)  loss_scale: 1024.0000 (360.5612)  weight_decay: 0.0500 (0.0500)  time: 0.5544  data: 0.0009  max mem: 1686
-Epoch: [0]  [  850/60301]  eta: 9:29:47  lr: 0.000031  min_lr: 0.000001  loss: 5.9523 (5.9665)  loss_scale: 1024.0000 (368.3572)  weight_decay: 0.0500 (0.0500)  time: 0.5539  data: 0.0010  max mem: 1686
-Epoch: [0]  [  860/60301]  eta: 9:29:27  lr: 0.000031  min_lr: 0.000001  loss: 5.9442 (5.9654)  loss_scale: 1024.0000 (375.9721)  weight_decay: 0.0500 (0.0500)  time: 0.5549  data: 0.0012  max mem: 1686
-Epoch: [0]  [  870/60301]  eta: 9:29:07  lr: 0.000031  min_lr: 0.000001  loss: 5.8945 (5.9651)  loss_scale: 1024.0000 (383.4122)  weight_decay: 0.0500 (0.0500)  time: 0.5541  data: 0.0012  max mem: 1686
-Epoch: [0]  [  880/60301]  eta: 9:28:49  lr: 0.000031  min_lr: 0.000001  loss: 5.9120 (5.9650)  loss_scale: 1024.0000 (390.6833)  weight_decay: 0.0500 (0.0500)  time: 0.5548  data: 0.0011  max mem: 1686
-Epoch: [0]  [  890/60301]  eta: 9:28:29  lr: 0.000031  min_lr: 0.000001  loss: 5.9702 (5.9649)  loss_scale: 1024.0000 (397.7912)  weight_decay: 0.0500 (0.0500)  time: 0.5544  data: 0.0020  max mem: 1686
-Epoch: [0]  [  900/60301]  eta: 9:28:09  lr: 0.000031  min_lr: 0.000001  loss: 5.8908 (5.9639)  loss_scale: 1024.0000 (404.7414)  weight_decay: 0.0500 (0.0500)  time: 0.5533  data: 0.0013  max mem: 1686
-Epoch: [0]  [  910/60301]  eta: 9:27:49  lr: 0.000031  min_lr: 0.000001  loss: 5.8568 (5.9632)  loss_scale: 1024.0000 (411.5390)  weight_decay: 0.0500 (0.0500)  time: 0.5527  data: 0.0004  max mem: 1686
-Epoch: [0]  [  920/60301]  eta: 9:27:31  lr: 0.000031  min_lr: 0.000001  loss: 5.8929 (5.9628)  loss_scale: 1024.0000 (418.1889)  weight_decay: 0.0500 (0.0500)  time: 0.5533  data: 0.0004  max mem: 1686
-Epoch: [0]  [  930/60301]  eta: 9:26:29  lr: 0.000031  min_lr: 0.000001  loss: 5.8833 (5.9624)  loss_scale: 1024.0000 (424.6960)  weight_decay: 0.0500 (0.0500)  time: 0.5199  data: 0.0004  max mem: 1686
-Epoch: [0]  [  940/60301]  eta: 9:23:51  lr: 0.000031  min_lr: 0.000001  loss: 5.9031 (5.9621)  loss_scale: 1024.0000 (431.0648)  weight_decay: 0.0500 (0.0500)  time: 0.4081  data: 0.0959  max mem: 1686
-Epoch: [0]  [  950/60301]  eta: 9:23:12  lr: 0.000031  min_lr: 0.000001  loss: 5.8723 (5.9611)  loss_scale: 1024.0000 (437.2997)  weight_decay: 0.0500 (0.0500)  time: 0.4236  data: 0.2826  max mem: 1686
-Epoch: [0]  [  960/60301]  eta: 9:22:17  lr: 0.000031  min_lr: 0.000001  loss: 5.8579 (5.9604)  loss_scale: 1024.0000 (443.4048)  weight_decay: 0.0500 (0.0500)  time: 0.5026  data: 0.3608  max mem: 1686
-Epoch: [0]  [  970/60301]  eta: 9:22:37  lr: 0.000031  min_lr: 0.000001  loss: 5.9034 (5.9603)  loss_scale: 1024.0000 (449.3841)  weight_decay: 0.0500 (0.0500)  time: 0.5500  data: 0.2900  max mem: 1686
-Epoch: [0]  [  980/60301]  eta: 9:22:33  lr: 0.000031  min_lr: 0.000001  loss: 5.9034 (5.9596)  loss_scale: 1024.0000 (455.2416)  weight_decay: 0.0500 (0.0500)  time: 0.5917  data: 0.1258  max mem: 1686
-Epoch: [0]  [  990/60301]  eta: 9:22:33  lr: 0.000031  min_lr: 0.000001  loss: 5.8669 (5.9593)  loss_scale: 1024.0000 (460.9808)  weight_decay: 0.0500 (0.0500)  time: 0.5755  data: 0.0233  max mem: 1686
-[2023-07-14 14:06:46,540] [INFO] [timer.py:181:stop] 0/1000, SamplesPerSec=7.778005360984278
-Epoch: [0]  [ 1000/60301]  eta: 9:24:07  lr: 0.000031  min_lr: 0.000001  loss: 5.8498 (5.9580)  loss_scale: 1024.0000 (466.6054)  weight_decay: 0.0500 (0.0500)  time: 0.6574  data: 0.1056  max mem: 1686
-Epoch: [0]  [ 1010/60301]  eta: 9:24:18  lr: 0.000031  min_lr: 0.000001  loss: 5.8417 (5.9575)  loss_scale: 1024.0000 (472.1187)  weight_decay: 0.0500 (0.0500)  time: 0.6684  data: 0.1145  max mem: 1686
-Epoch: [0]  [ 1020/60301]  eta: 9:24:18  lr: 0.000031  min_lr: 0.000001  loss: 5.8389 (5.9562)  loss_scale: 1024.0000 (477.5240)  weight_decay: 0.0500 (0.0500)  time: 0.5903  data: 0.0368  max mem: 1686
-[2023-07-14 14:07:01,618] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:07:01,618] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 1024 to 2048
-Epoch: [0]  [ 1030/60301]  eta: 9:24:05  lr: 0.000031  min_lr: 0.000001  loss: 5.8166 (5.9553)  loss_scale: 1024.0000 (488.7837)  weight_decay: 0.0500 (0.0500)  time: 0.5692  data: 0.0145  max mem: 1686
-Epoch: [0]  [ 1040/60301]  eta: 9:23:50  lr: 0.000031  min_lr: 0.000001  loss: 5.8166 (5.9543)  loss_scale: 2048.0000 (503.7618)  weight_decay: 0.0500 (0.0500)  time: 0.5569  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1050/60301]  eta: 9:25:01  lr: 0.000031  min_lr: 0.000001  loss: 5.8564 (5.9537)  loss_scale: 2048.0000 (518.4548)  weight_decay: 0.0500 (0.0500)  time: 0.6310  data: 0.0772  max mem: 1686
-Epoch: [0]  [ 1060/60301]  eta: 9:25:03  lr: 0.000031  min_lr: 0.000001  loss: 5.8595 (5.9528)  loss_scale: 2048.0000 (532.8709)  weight_decay: 0.0500 (0.0500)  time: 0.6463  data: 0.0927  max mem: 1686
-Epoch: [0]  [ 1070/60301]  eta: 9:24:50  lr: 0.000031  min_lr: 0.000001  loss: 5.8532 (5.9519)  loss_scale: 2048.0000 (547.0177)  weight_decay: 0.0500 (0.0500)  time: 0.5727  data: 0.0159  max mem: 1686
-Epoch: [0]  [ 1080/60301]  eta: 9:24:37  lr: 0.000031  min_lr: 0.000001  loss: 5.8713 (5.9513)  loss_scale: 2048.0000 (560.9029)  weight_decay: 0.0500 (0.0500)  time: 0.5585  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1090/60301]  eta: 9:24:21  lr: 0.000031  min_lr: 0.000001  loss: 5.8974 (5.9504)  loss_scale: 2048.0000 (574.5335)  weight_decay: 0.0500 (0.0500)  time: 0.5564  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1100/60301]  eta: 9:24:07  lr: 0.000031  min_lr: 0.000001  loss: 5.9030 (5.9504)  loss_scale: 2048.0000 (587.9164)  weight_decay: 0.0500 (0.0500)  time: 0.5548  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1110/60301]  eta: 9:23:54  lr: 0.000031  min_lr: 0.000001  loss: 5.8672 (5.9497)  loss_scale: 2048.0000 (601.0585)  weight_decay: 0.0500 (0.0500)  time: 0.5567  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1120/60301]  eta: 9:23:40  lr: 0.000031  min_lr: 0.000001  loss: 5.8555 (5.9491)  loss_scale: 2048.0000 (613.9661)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1130/60301]  eta: 9:23:27  lr: 0.000031  min_lr: 0.000001  loss: 5.9324 (5.9494)  loss_scale: 2048.0000 (626.6454)  weight_decay: 0.0500 (0.0500)  time: 0.5570  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 1140/60301]  eta: 9:23:13  lr: 0.000031  min_lr: 0.000001  loss: 5.9324 (5.9488)  loss_scale: 2048.0000 (639.1025)  weight_decay: 0.0500 (0.0500)  time: 0.5569  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 1150/60301]  eta: 9:24:00  lr: 0.000031  min_lr: 0.000001  loss: 5.8604 (5.9481)  loss_scale: 2048.0000 (651.3432)  weight_decay: 0.0500 (0.0500)  time: 0.6150  data: 0.0588  max mem: 1686
-Epoch: [0]  [ 1160/60301]  eta: 9:23:47  lr: 0.000031  min_lr: 0.000001  loss: 5.8754 (5.9480)  loss_scale: 2048.0000 (663.3730)  weight_decay: 0.0500 (0.0500)  time: 0.6155  data: 0.0599  max mem: 1686
-Epoch: [0]  [ 1170/60301]  eta: 9:23:35  lr: 0.000031  min_lr: 0.000001  loss: 5.8729 (5.9473)  loss_scale: 2048.0000 (675.1973)  weight_decay: 0.0500 (0.0500)  time: 0.5586  data: 0.0015  max mem: 1686
-Epoch: [0]  [ 1180/60301]  eta: 9:23:24  lr: 0.000031  min_lr: 0.000001  loss: 5.8456 (5.9464)  loss_scale: 2048.0000 (686.8213)  weight_decay: 0.0500 (0.0500)  time: 0.5602  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1190/60301]  eta: 9:23:10  lr: 0.000031  min_lr: 0.000001  loss: 5.8662 (5.9463)  loss_scale: 2048.0000 (698.2502)  weight_decay: 0.0500 (0.0500)  time: 0.5579  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1200/60301]  eta: 9:22:58  lr: 0.000031  min_lr: 0.000001  loss: 5.9237 (5.9463)  loss_scale: 2048.0000 (709.4888)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1210/60301]  eta: 9:22:45  lr: 0.000031  min_lr: 0.000001  loss: 5.9105 (5.9461)  loss_scale: 2048.0000 (720.5417)  weight_decay: 0.0500 (0.0500)  time: 0.5573  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1220/60301]  eta: 9:22:31  lr: 0.000031  min_lr: 0.000001  loss: 5.8971 (5.9456)  loss_scale: 2048.0000 (731.4136)  weight_decay: 0.0500 (0.0500)  time: 0.5556  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1230/60301]  eta: 9:22:18  lr: 0.000031  min_lr: 0.000001  loss: 5.8665 (5.9450)  loss_scale: 2048.0000 (742.1089)  weight_decay: 0.0500 (0.0500)  time: 0.5558  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1240/60301]  eta: 9:19:48  lr: 0.000031  min_lr: 0.000001  loss: 5.8570 (5.9443)  loss_scale: 2048.0000 (752.6317)  weight_decay: 0.0500 (0.0500)  time: 0.4116  data: 0.0159  max mem: 1686
-Epoch: [0]  [ 1250/60301]  eta: 9:19:28  lr: 0.000031  min_lr: 0.000001  loss: 5.8425 (5.9437)  loss_scale: 2048.0000 (762.9864)  weight_decay: 0.0500 (0.0500)  time: 0.4028  data: 0.2137  max mem: 1686
-Epoch: [0]  [ 1260/60301]  eta: 9:18:35  lr: 0.000031  min_lr: 0.000001  loss: 5.9000 (5.9432)  loss_scale: 2048.0000 (773.1768)  weight_decay: 0.0500 (0.0500)  time: 0.5029  data: 0.3610  max mem: 1686
-Epoch: [0]  [ 1270/60301]  eta: 9:18:51  lr: 0.000031  min_lr: 0.000001  loss: 5.9229 (5.9427)  loss_scale: 2048.0000 (783.2069)  weight_decay: 0.0500 (0.0500)  time: 0.5411  data: 0.3507  max mem: 1686
-Epoch: [0]  [ 1280/60301]  eta: 9:20:49  lr: 0.000031  min_lr: 0.000001  loss: 5.9124 (5.9422)  loss_scale: 2048.0000 (793.0804)  weight_decay: 0.0500 (0.0500)  time: 0.7250  data: 0.3277  max mem: 1686
-[2023-07-14 14:09:26,647] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:09:26,647] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 2048 to 4096
-Epoch: [0]  [ 1290/60301]  eta: 9:20:45  lr: 0.000031  min_lr: 0.000001  loss: 5.8486 (5.9414)  loss_scale: 2048.0000 (818.6646)  weight_decay: 0.0500 (0.0500)  time: 0.7054  data: 0.1505  max mem: 1686
-Epoch: [0]  [ 1300/60301]  eta: 9:20:35  lr: 0.000031  min_lr: 0.000001  loss: 5.8486 (5.9411)  loss_scale: 4096.0000 (843.8555)  weight_decay: 0.0500 (0.0500)  time: 0.5673  data: 0.0107  max mem: 1686
-Epoch: [0]  [ 1310/60301]  eta: 9:20:35  lr: 0.000031  min_lr: 0.000001  loss: 5.9001 (5.9412)  loss_scale: 4096.0000 (868.6621)  weight_decay: 0.0500 (0.0500)  time: 0.5709  data: 0.0137  max mem: 1686
-Epoch: [0]  [ 1320/60301]  eta: 9:20:25  lr: 0.000031  min_lr: 0.000001  loss: 5.8999 (5.9407)  loss_scale: 4096.0000 (893.0931)  weight_decay: 0.0500 (0.0500)  time: 0.5720  data: 0.0154  max mem: 1686
-Epoch: [0]  [ 1330/60301]  eta: 9:20:13  lr: 0.000031  min_lr: 0.000001  loss: 5.8999 (5.9404)  loss_scale: 4096.0000 (917.1570)  weight_decay: 0.0500 (0.0500)  time: 0.5587  data: 0.0022  max mem: 1686
-Epoch: [0]  [ 1340/60301]  eta: 9:20:02  lr: 0.000031  min_lr: 0.000001  loss: 5.8714 (5.9396)  loss_scale: 4096.0000 (940.8620)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1350/60301]  eta: 9:19:50  lr: 0.000031  min_lr: 0.000001  loss: 5.8636 (5.9393)  loss_scale: 4096.0000 (964.2161)  weight_decay: 0.0500 (0.0500)  time: 0.5572  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1360/60301]  eta: 9:19:40  lr: 0.000031  min_lr: 0.000001  loss: 5.8854 (5.9389)  loss_scale: 4096.0000 (987.2270)  weight_decay: 0.0500 (0.0500)  time: 0.5584  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1370/60301]  eta: 9:19:31  lr: 0.000031  min_lr: 0.000001  loss: 5.8923 (5.9382)  loss_scale: 4096.0000 (1009.9023)  weight_decay: 0.0500 (0.0500)  time: 0.5601  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1380/60301]  eta: 9:19:19  lr: 0.000031  min_lr: 0.000001  loss: 5.8592 (5.9373)  loss_scale: 4096.0000 (1032.2491)  weight_decay: 0.0500 (0.0500)  time: 0.5586  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 1390/60301]  eta: 9:19:08  lr: 0.000031  min_lr: 0.000001  loss: 5.8525 (5.9371)  loss_scale: 4096.0000 (1054.2746)  weight_decay: 0.0500 (0.0500)  time: 0.5567  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 1400/60301]  eta: 9:18:57  lr: 0.000031  min_lr: 0.000001  loss: 5.8199 (5.9363)  loss_scale: 4096.0000 (1075.9857)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1410/60301]  eta: 9:18:46  lr: 0.000031  min_lr: 0.000001  loss: 5.8427 (5.9360)  loss_scale: 4096.0000 (1097.3891)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1420/60301]  eta: 9:18:35  lr: 0.000031  min_lr: 0.000001  loss: 5.8581 (5.9355)  loss_scale: 4096.0000 (1118.4912)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1430/60301]  eta: 9:18:26  lr: 0.000031  min_lr: 0.000001  loss: 5.8437 (5.9347)  loss_scale: 4096.0000 (1139.2984)  weight_decay: 0.0500 (0.0500)  time: 0.5582  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1440/60301]  eta: 9:18:16  lr: 0.000031  min_lr: 0.000001  loss: 5.8415 (5.9341)  loss_scale: 4096.0000 (1159.8168)  weight_decay: 0.0500 (0.0500)  time: 0.5590  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1450/60301]  eta: 9:18:04  lr: 0.000031  min_lr: 0.000001  loss: 5.8290 (5.9334)  loss_scale: 4096.0000 (1180.0524)  weight_decay: 0.0500 (0.0500)  time: 0.5568  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1460/60301]  eta: 9:17:54  lr: 0.000031  min_lr: 0.000001  loss: 5.8530 (5.9330)  loss_scale: 4096.0000 (1200.0110)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1470/60301]  eta: 9:17:59  lr: 0.000031  min_lr: 0.000001  loss: 5.8701 (5.9321)  loss_scale: 4096.0000 (1219.6982)  weight_decay: 0.0500 (0.0500)  time: 0.5772  data: 0.0179  max mem: 1686
-Epoch: [0]  [ 1480/60301]  eta: 9:17:49  lr: 0.000031  min_lr: 0.000001  loss: 5.8745 (5.9315)  loss_scale: 4096.0000 (1239.1195)  weight_decay: 0.0500 (0.0500)  time: 0.5766  data: 0.0170  max mem: 1686
-Epoch: [0]  [ 1490/60301]  eta: 9:17:39  lr: 0.000031  min_lr: 0.000001  loss: 5.8628 (5.9306)  loss_scale: 4096.0000 (1258.2803)  weight_decay: 0.0500 (0.0500)  time: 0.5574  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1500/60301]  eta: 9:17:29  lr: 0.000031  min_lr: 0.000001  loss: 5.7803 (5.9297)  loss_scale: 4096.0000 (1277.1859)  weight_decay: 0.0500 (0.0500)  time: 0.5579  data: 0.0023  max mem: 1686
-Epoch: [0]  [ 1510/60301]  eta: 9:17:19  lr: 0.000031  min_lr: 0.000001  loss: 5.8388 (5.9294)  loss_scale: 4096.0000 (1295.8412)  weight_decay: 0.0500 (0.0500)  time: 0.5581  data: 0.0023  max mem: 1686
-Epoch: [0]  [ 1520/60301]  eta: 9:17:10  lr: 0.000031  min_lr: 0.000001  loss: 5.8359 (5.9287)  loss_scale: 4096.0000 (1314.2512)  weight_decay: 0.0500 (0.0500)  time: 0.5587  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1530/60301]  eta: 9:16:59  lr: 0.000031  min_lr: 0.000001  loss: 5.8251 (5.9282)  loss_scale: 4096.0000 (1332.4206)  weight_decay: 0.0500 (0.0500)  time: 0.5577  data: 0.0004  max mem: 1686
-[2023-07-14 14:11:50,331] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:11:50,332] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 4096 to 8192
-Epoch: [0]  [ 1540/60301]  eta: 9:16:49  lr: 0.000031  min_lr: 0.000001  loss: 5.8581 (5.9279)  loss_scale: 4096.0000 (1360.9864)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1550/60301]  eta: 9:16:40  lr: 0.000031  min_lr: 0.000001  loss: 5.8688 (5.9275)  loss_scale: 8192.0000 (1405.0290)  weight_decay: 0.0500 (0.0500)  time: 0.5581  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1560/60301]  eta: 9:16:30  lr: 0.000031  min_lr: 0.000001  loss: 5.8364 (5.9269)  loss_scale: 8192.0000 (1448.5074)  weight_decay: 0.0500 (0.0500)  time: 0.5576  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1570/60301]  eta: 9:16:19  lr: 0.000031  min_lr: 0.000001  loss: 5.8238 (5.9261)  loss_scale: 8192.0000 (1491.4322)  weight_decay: 0.0500 (0.0500)  time: 0.5561  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1580/60301]  eta: 9:16:09  lr: 0.000031  min_lr: 0.000001  loss: 5.7826 (5.9254)  loss_scale: 8192.0000 (1533.8140)  weight_decay: 0.0500 (0.0500)  time: 0.5557  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1590/60301]  eta: 9:16:00  lr: 0.000031  min_lr: 0.000001  loss: 5.8156 (5.9247)  loss_scale: 8192.0000 (1575.6631)  weight_decay: 0.0500 (0.0500)  time: 0.5577  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1600/60301]  eta: 9:15:50  lr: 0.000031  min_lr: 0.000001  loss: 5.8556 (5.9244)  loss_scale: 8192.0000 (1616.9894)  weight_decay: 0.0500 (0.0500)  time: 0.5584  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1610/60301]  eta: 9:15:40  lr: 0.000031  min_lr: 0.000001  loss: 5.8663 (5.9240)  loss_scale: 8192.0000 (1657.8026)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1620/60301]  eta: 9:15:31  lr: 0.000031  min_lr: 0.000001  loss: 5.8141 (5.9234)  loss_scale: 8192.0000 (1698.1123)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1630/60301]  eta: 9:15:21  lr: 0.000031  min_lr: 0.000001  loss: 5.8427 (5.9229)  loss_scale: 8192.0000 (1737.9277)  weight_decay: 0.0500 (0.0500)  time: 0.5568  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1640/60301]  eta: 9:15:12  lr: 0.000031  min_lr: 0.000001  loss: 5.8812 (5.9223)  loss_scale: 8192.0000 (1777.2578)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1650/60301]  eta: 9:15:03  lr: 0.000031  min_lr: 0.000001  loss: 5.7235 (5.9210)  loss_scale: 8192.0000 (1816.1114)  weight_decay: 0.0500 (0.0500)  time: 0.5580  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1660/60301]  eta: 9:14:53  lr: 0.000031  min_lr: 0.000001  loss: 5.7968 (5.9206)  loss_scale: 8192.0000 (1854.4973)  weight_decay: 0.0500 (0.0500)  time: 0.5574  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1670/60301]  eta: 9:14:44  lr: 0.000031  min_lr: 0.000001  loss: 5.7968 (5.9196)  loss_scale: 8192.0000 (1892.4237)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1680/60301]  eta: 9:14:35  lr: 0.000031  min_lr: 0.000001  loss: 5.8007 (5.9191)  loss_scale: 8192.0000 (1929.8989)  weight_decay: 0.0500 (0.0500)  time: 0.5584  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1690/60301]  eta: 9:14:25  lr: 0.000031  min_lr: 0.000001  loss: 5.8239 (5.9188)  loss_scale: 8192.0000 (1966.9308)  weight_decay: 0.0500 (0.0500)  time: 0.5571  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1700/60301]  eta: 9:15:07  lr: 0.000031  min_lr: 0.000001  loss: 5.8596 (5.9186)  loss_scale: 8192.0000 (2003.5273)  weight_decay: 0.0500 (0.0500)  time: 0.6304  data: 0.0748  max mem: 1686
-Epoch: [0]  [ 1710/60301]  eta: 9:14:58  lr: 0.000031  min_lr: 0.000001  loss: 5.8596 (5.9185)  loss_scale: 8192.0000 (2039.6961)  weight_decay: 0.0500 (0.0500)  time: 0.6328  data: 0.0748  max mem: 1686
-Epoch: [0]  [ 1720/60301]  eta: 9:14:58  lr: 0.000031  min_lr: 0.000001  loss: 5.8397 (5.9178)  loss_scale: 8192.0000 (2075.4445)  weight_decay: 0.0500 (0.0500)  time: 0.5716  data: 0.0126  max mem: 1686
-Epoch: [0]  [ 1730/60301]  eta: 9:16:08  lr: 0.000031  min_lr: 0.000001  loss: 5.8065 (5.9171)  loss_scale: 8192.0000 (2110.7799)  weight_decay: 0.0500 (0.0500)  time: 0.6878  data: 0.1286  max mem: 1686
-Epoch: [0]  [ 1740/60301]  eta: 9:16:09  lr: 0.000031  min_lr: 0.000001  loss: 5.7650 (5.9166)  loss_scale: 8192.0000 (2145.7094)  weight_decay: 0.0500 (0.0500)  time: 0.6906  data: 0.1320  max mem: 1686
-Epoch: [0]  [ 1750/60301]  eta: 9:15:59  lr: 0.000031  min_lr: 0.000001  loss: 5.8177 (5.9163)  loss_scale: 8192.0000 (2180.2399)  weight_decay: 0.0500 (0.0500)  time: 0.5737  data: 0.0161  max mem: 1686
-Epoch: [0]  [ 1760/60301]  eta: 9:15:50  lr: 0.000031  min_lr: 0.000001  loss: 5.8063 (5.9156)  loss_scale: 8192.0000 (2214.3782)  weight_decay: 0.0500 (0.0500)  time: 0.5595  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1770/60301]  eta: 9:15:40  lr: 0.000031  min_lr: 0.000001  loss: 5.7967 (5.9149)  loss_scale: 8192.0000 (2248.1310)  weight_decay: 0.0500 (0.0500)  time: 0.5584  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1780/60301]  eta: 9:15:31  lr: 0.000031  min_lr: 0.000001  loss: 5.8120 (5.9146)  loss_scale: 8192.0000 (2281.5048)  weight_decay: 0.0500 (0.0500)  time: 0.5569  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1790/60301]  eta: 9:17:30  lr: 0.000031  min_lr: 0.000001  loss: 5.8565 (5.9143)  loss_scale: 8192.0000 (2314.5059)  weight_decay: 0.0500 (0.0500)  time: 0.7555  data: 0.1988  max mem: 1686
-[2023-07-14 14:14:21,517] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:14:21,517] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 8192 to 16384
-Epoch: [0]  [ 1800/60301]  eta: 9:17:20  lr: 0.000031  min_lr: 0.000001  loss: 5.8217 (5.9141)  loss_scale: 8192.0000 (2383.5292)  weight_decay: 0.0500 (0.0500)  time: 0.7551  data: 0.1988  max mem: 1686
-Epoch: [0]  [ 1810/60301]  eta: 9:16:15  lr: 0.000031  min_lr: 0.000001  loss: 5.7905 (5.9137)  loss_scale: 16384.0000 (2460.8371)  weight_decay: 0.0500 (0.0500)  time: 0.4728  data: 0.0662  max mem: 1686
-Epoch: [0]  [ 1820/60301]  eta: 9:15:38  lr: 0.000031  min_lr: 0.000001  loss: 5.7709 (5.9131)  loss_scale: 16384.0000 (2537.2960)  weight_decay: 0.0500 (0.0500)  time: 0.4317  data: 0.2319  max mem: 1686
-Epoch: [0]  [ 1830/60301]  eta: 9:14:57  lr: 0.000031  min_lr: 0.000001  loss: 5.7780 (5.9126)  loss_scale: 16384.0000 (2612.9197)  weight_decay: 0.0500 (0.0500)  time: 0.4662  data: 0.3233  max mem: 1686
-Epoch: [0]  [ 1840/60301]  eta: 9:15:32  lr: 0.000031  min_lr: 0.000001  loss: 5.7912 (5.9124)  loss_scale: 16384.0000 (2687.7219)  weight_decay: 0.0500 (0.0500)  time: 0.5779  data: 0.3455  max mem: 1686
-Epoch: [0]  [ 1850/60301]  eta: 9:15:29  lr: 0.000031  min_lr: 0.000001  loss: 5.8256 (5.9119)  loss_scale: 16384.0000 (2761.7158)  weight_decay: 0.0500 (0.0500)  time: 0.6391  data: 0.1989  max mem: 1686
-Epoch: [0]  [ 1860/60301]  eta: 9:15:20  lr: 0.000031  min_lr: 0.000001  loss: 5.8021 (5.9111)  loss_scale: 16384.0000 (2834.9146)  weight_decay: 0.0500 (0.0500)  time: 0.5697  data: 0.0111  max mem: 1686
-Epoch: [0]  [ 1870/60301]  eta: 9:15:12  lr: 0.000031  min_lr: 0.000001  loss: 5.8343 (5.9110)  loss_scale: 16384.0000 (2907.3308)  weight_decay: 0.0500 (0.0500)  time: 0.5607  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1880/60301]  eta: 9:15:04  lr: 0.000031  min_lr: 0.000001  loss: 5.8319 (5.9103)  loss_scale: 16384.0000 (2978.9771)  weight_decay: 0.0500 (0.0500)  time: 0.5618  data: 0.0022  max mem: 1686
-Epoch: [0]  [ 1890/60301]  eta: 9:14:55  lr: 0.000031  min_lr: 0.000001  loss: 5.7491 (5.9096)  loss_scale: 16384.0000 (3049.8657)  weight_decay: 0.0500 (0.0500)  time: 0.5605  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1900/60301]  eta: 9:14:46  lr: 0.000031  min_lr: 0.000001  loss: 5.8447 (5.9095)  loss_scale: 16384.0000 (3120.0084)  weight_decay: 0.0500 (0.0500)  time: 0.5599  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1910/60301]  eta: 9:14:38  lr: 0.000031  min_lr: 0.000001  loss: 5.8535 (5.9093)  loss_scale: 16384.0000 (3189.4171)  weight_decay: 0.0500 (0.0500)  time: 0.5605  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 1920/60301]  eta: 9:14:27  lr: 0.000031  min_lr: 0.000001  loss: 5.7725 (5.9084)  loss_scale: 16384.0000 (3258.1031)  weight_decay: 0.0500 (0.0500)  time: 0.5581  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1930/60301]  eta: 9:14:37  lr: 0.000031  min_lr: 0.000001  loss: 5.7358 (5.9079)  loss_scale: 16384.0000 (3326.0777)  weight_decay: 0.0500 (0.0500)  time: 0.5884  data: 0.0312  max mem: 1686
-Epoch: [0]  [ 1940/60301]  eta: 9:14:29  lr: 0.000031  min_lr: 0.000001  loss: 5.8110 (5.9073)  loss_scale: 16384.0000 (3393.3519)  weight_decay: 0.0500 (0.0500)  time: 0.5917  data: 0.0312  max mem: 1686
-Epoch: [0]  [ 1950/60301]  eta: 9:14:19  lr: 0.000031  min_lr: 0.000001  loss: 5.7696 (5.9065)  loss_scale: 16384.0000 (3459.9364)  weight_decay: 0.0500 (0.0500)  time: 0.5590  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 1960/60301]  eta: 9:14:11  lr: 0.000031  min_lr: 0.000001  loss: 5.7708 (5.9059)  loss_scale: 16384.0000 (3525.8419)  weight_decay: 0.0500 (0.0500)  time: 0.5583  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 1970/60301]  eta: 9:14:02  lr: 0.000031  min_lr: 0.000001  loss: 5.7923 (5.9056)  loss_scale: 16384.0000 (3591.0786)  weight_decay: 0.0500 (0.0500)  time: 0.5595  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1980/60301]  eta: 9:13:54  lr: 0.000031  min_lr: 0.000001  loss: 5.8116 (5.9054)  loss_scale: 16384.0000 (3655.6567)  weight_decay: 0.0500 (0.0500)  time: 0.5613  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 1990/60301]  eta: 9:13:46  lr: 0.000031  min_lr: 0.000001  loss: 5.8827 (5.9052)  loss_scale: 16384.0000 (3719.5861)  weight_decay: 0.0500 (0.0500)  time: 0.5619  data: 0.0013  max mem: 1686
-[2023-07-14 14:16:15,539] [INFO] [logging.py:69:log_dist] [Rank 0] step=1000, skipped=0, lr=[7.424145005643368e-07, 7.424145005643368e-07, 9.89886000752449e-07, 9.89886000752449e-07, 1.3198480010032653e-06, 1.3198480010032653e-06, 1.7597973346710205e-06, 1.7597973346710205e-06, 2.3463964462280273e-06, 2.3463964462280273e-06, 3.128528594970703e-06, 3.128528594970703e-06, 4.171371459960937e-06, 4.171371459960937e-06, 5.56182861328125e-06, 5.56182861328125e-06, 7.415771484375e-06, 7.415771484375e-06, 9.8876953125e-06, 9.8876953125e-06, 1.318359375e-05, 1.318359375e-05, 1.7578125000000002e-05, 1.7578125000000002e-05, 2.34375e-05, 2.34375e-05, 3.125e-05, 3.125e-05], mom=[[0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999], [0.9, 0.999]]
-[2023-07-14 14:16:15,543] [INFO] [timer.py:181:stop] 0/2000, SamplesPerSec=7.737559152186308
-Epoch: [0]  [ 2000/60301]  eta: 9:13:36  lr: 0.000031  min_lr: 0.000001  loss: 5.8663 (5.9048)  loss_scale: 16384.0000 (3782.8766)  weight_decay: 0.0500 (0.0500)  time: 0.5579  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2010/60301]  eta: 9:13:28  lr: 0.000031  min_lr: 0.000001  loss: 5.8581 (5.9044)  loss_scale: 16384.0000 (3845.5375)  weight_decay: 0.0500 (0.0500)  time: 0.5586  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2020/60301]  eta: 9:13:19  lr: 0.000031  min_lr: 0.000001  loss: 5.8581 (5.9043)  loss_scale: 16384.0000 (3907.5784)  weight_decay: 0.0500 (0.0500)  time: 0.5604  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2030/60301]  eta: 9:13:10  lr: 0.000031  min_lr: 0.000001  loss: 5.8105 (5.9039)  loss_scale: 16384.0000 (3969.0084)  weight_decay: 0.0500 (0.0500)  time: 0.5593  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2040/60301]  eta: 9:13:02  lr: 0.000031  min_lr: 0.000001  loss: 5.7657 (5.9036)  loss_scale: 16384.0000 (4029.8364)  weight_decay: 0.0500 (0.0500)  time: 0.5592  data: 0.0004  max mem: 1686
-[2023-07-14 14:16:43,459] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:16:43,459] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 16384 to 32768
-Epoch: [0]  [ 2050/60301]  eta: 9:12:53  lr: 0.000031  min_lr: 0.000001  loss: 5.7541 (5.9027)  loss_scale: 16384.0000 (4106.0478)  weight_decay: 0.0500 (0.0500)  time: 0.5600  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2060/60301]  eta: 9:12:45  lr: 0.000031  min_lr: 0.000001  loss: 5.7740 (5.9026)  loss_scale: 32768.0000 (4245.1160)  weight_decay: 0.0500 (0.0500)  time: 0.5598  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2070/60301]  eta: 9:12:37  lr: 0.000031  min_lr: 0.000001  loss: 5.8316 (5.9022)  loss_scale: 32768.0000 (4382.8411)  weight_decay: 0.0500 (0.0500)  time: 0.5612  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2080/60301]  eta: 9:11:27  lr: 0.000031  min_lr: 0.000001  loss: 5.8316 (5.9015)  loss_scale: 32768.0000 (4519.2427)  weight_decay: 0.0500 (0.0500)  time: 0.4503  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2090/60301]  eta: 9:10:41  lr: 0.000031  min_lr: 0.000001  loss: 5.7855 (5.9009)  loss_scale: 32768.0000 (4654.3396)  weight_decay: 0.0500 (0.0500)  time: 0.3815  data: 0.1423  max mem: 1686
-Epoch: [0]  [ 2100/60301]  eta: 9:11:04  lr: 0.000031  min_lr: 0.000001  loss: 5.8673 (5.9010)  loss_scale: 32768.0000 (4788.1504)  weight_decay: 0.0500 (0.0500)  time: 0.5477  data: 0.4063  max mem: 1686
-Epoch: [0]  [ 2110/60301]  eta: 9:11:37  lr: 0.000031  min_lr: 0.000001  loss: 5.8803 (5.9007)  loss_scale: 32768.0000 (4920.6935)  weight_decay: 0.0500 (0.0500)  time: 0.6885  data: 0.4556  max mem: 1686
-Epoch: [0]  [ 2120/60301]  eta: 9:11:27  lr: 0.000031  min_lr: 0.000001  loss: 5.8258 (5.9006)  loss_scale: 32768.0000 (5051.9868)  weight_decay: 0.0500 (0.0500)  time: 0.6316  data: 0.1926  max mem: 1686
-Epoch: [0]  [ 2130/60301]  eta: 9:11:18  lr: 0.000031  min_lr: 0.000001  loss: 5.7233 (5.8997)  loss_scale: 32768.0000 (5182.0479)  weight_decay: 0.0500 (0.0500)  time: 0.5551  data: 0.0015  max mem: 1686
-Epoch: [0]  [ 2140/60301]  eta: 9:11:10  lr: 0.000031  min_lr: 0.000001  loss: 5.7307 (5.8993)  loss_scale: 32768.0000 (5310.8940)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2150/60301]  eta: 9:11:20  lr: 0.000031  min_lr: 0.000001  loss: 5.8729 (5.8991)  loss_scale: 32768.0000 (5438.5421)  weight_decay: 0.0500 (0.0500)  time: 0.5941  data: 0.0393  max mem: 1686
-Epoch: [0]  [ 2160/60301]  eta: 9:11:10  lr: 0.000031  min_lr: 0.000001  loss: 5.8106 (5.8984)  loss_scale: 32768.0000 (5565.0088)  weight_decay: 0.0500 (0.0500)  time: 0.5906  data: 0.0384  max mem: 1686
-Epoch: [0]  [ 2170/60301]  eta: 9:11:01  lr: 0.000031  min_lr: 0.000001  loss: 5.7918 (5.8982)  loss_scale: 32768.0000 (5690.3105)  weight_decay: 0.0500 (0.0500)  time: 0.5542  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2180/60301]  eta: 9:10:53  lr: 0.000031  min_lr: 0.000001  loss: 5.7918 (5.8978)  loss_scale: 32768.0000 (5814.4631)  weight_decay: 0.0500 (0.0500)  time: 0.5576  data: 0.0023  max mem: 1686
-Epoch: [0]  [ 2190/60301]  eta: 9:10:44  lr: 0.000031  min_lr: 0.000001  loss: 5.7915 (5.8975)  loss_scale: 32768.0000 (5937.4824)  weight_decay: 0.0500 (0.0500)  time: 0.5574  data: 0.0023  max mem: 1686
-Epoch: [0]  [ 2200/60301]  eta: 9:10:35  lr: 0.000031  min_lr: 0.000001  loss: 5.7815 (5.8966)  loss_scale: 32768.0000 (6059.3839)  weight_decay: 0.0500 (0.0500)  time: 0.5564  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2210/60301]  eta: 9:10:38  lr: 0.000031  min_lr: 0.000001  loss: 5.7453 (5.8957)  loss_scale: 32768.0000 (6180.1827)  weight_decay: 0.0500 (0.0500)  time: 0.5804  data: 0.0239  max mem: 1686
-Epoch: [0]  [ 2220/60301]  eta: 9:10:59  lr: 0.000031  min_lr: 0.000001  loss: 5.7573 (5.8950)  loss_scale: 32768.0000 (6299.8937)  weight_decay: 0.0500 (0.0500)  time: 0.6368  data: 0.0800  max mem: 1686
-Epoch: [0]  [ 2230/60301]  eta: 9:10:29  lr: 0.000031  min_lr: 0.000001  loss: 5.7883 (5.8946)  loss_scale: 32768.0000 (6418.5316)  weight_decay: 0.0500 (0.0500)  time: 0.5718  data: 0.1912  max mem: 1686
-Epoch: [0]  [ 2240/60301]  eta: 9:10:07  lr: 0.000031  min_lr: 0.000001  loss: 5.7475 (5.8937)  loss_scale: 32768.0000 (6536.1107)  weight_decay: 0.0500 (0.0500)  time: 0.4912  data: 0.3184  max mem: 1686
-Epoch: [0]  [ 2250/60301]  eta: 9:09:46  lr: 0.000031  min_lr: 0.000001  loss: 5.7247 (5.8930)  loss_scale: 32768.0000 (6652.6450)  weight_decay: 0.0500 (0.0500)  time: 0.5082  data: 0.3668  max mem: 1686
-Epoch: [0]  [ 2260/60301]  eta: 9:09:33  lr: 0.000031  min_lr: 0.000001  loss: 5.7247 (5.8923)  loss_scale: 32768.0000 (6768.1486)  weight_decay: 0.0500 (0.0500)  time: 0.5247  data: 0.2595  max mem: 1686
-Epoch: [0]  [ 2270/60301]  eta: 9:09:51  lr: 0.000031  min_lr: 0.000001  loss: 5.7076 (5.8918)  loss_scale: 32768.0000 (6882.6350)  weight_decay: 0.0500 (0.0500)  time: 0.6008  data: 0.1278  max mem: 1686
-Epoch: [0]  [ 2280/60301]  eta: 9:09:43  lr: 0.000031  min_lr: 0.000001  loss: 5.8552 (5.8919)  loss_scale: 32768.0000 (6996.1175)  weight_decay: 0.0500 (0.0500)  time: 0.6089  data: 0.0518  max mem: 1686
-Epoch: [0]  [ 2290/60301]  eta: 9:09:34  lr: 0.000031  min_lr: 0.000001  loss: 5.7963 (5.8910)  loss_scale: 32768.0000 (7108.6093)  weight_decay: 0.0500 (0.0500)  time: 0.5574  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2300/60301]  eta: 9:10:09  lr: 0.000031  min_lr: 0.000001  loss: 5.7158 (5.8907)  loss_scale: 32768.0000 (7220.1234)  weight_decay: 0.0500 (0.0500)  time: 0.6439  data: 0.0860  max mem: 1686
-[2023-07-14 14:19:09,073] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:19:09,073] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 32768 to 65536
-Epoch: [0]  [ 2310/60301]  eta: 9:10:19  lr: 0.000031  min_lr: 0.000001  loss: 5.7905 (5.8901)  loss_scale: 32768.0000 (7415.7473)  weight_decay: 0.0500 (0.0500)  time: 0.6794  data: 0.1218  max mem: 1686
-Epoch: [0]  [ 2320/60301]  eta: 9:10:10  lr: 0.000031  min_lr: 0.000001  loss: 5.8187 (5.8898)  loss_scale: 65536.0000 (7666.1577)  weight_decay: 0.0500 (0.0500)  time: 0.5938  data: 0.0362  max mem: 1686
-Epoch: [0]  [ 2330/60301]  eta: 9:10:01  lr: 0.000031  min_lr: 0.000001  loss: 5.8187 (5.8896)  loss_scale: 65536.0000 (7914.4196)  weight_decay: 0.0500 (0.0500)  time: 0.5572  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2340/60301]  eta: 9:09:53  lr: 0.000031  min_lr: 0.000001  loss: 5.7931 (5.8890)  loss_scale: 65536.0000 (8160.5604)  weight_decay: 0.0500 (0.0500)  time: 0.5568  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2350/60301]  eta: 9:09:45  lr: 0.000031  min_lr: 0.000001  loss: 5.7501 (5.8886)  loss_scale: 65536.0000 (8404.6074)  weight_decay: 0.0500 (0.0500)  time: 0.5593  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2360/60301]  eta: 9:09:48  lr: 0.000031  min_lr: 0.000001  loss: 5.7501 (5.8883)  loss_scale: 65536.0000 (8646.5870)  weight_decay: 0.0500 (0.0500)  time: 0.5825  data: 0.0244  max mem: 1686
-Epoch: [0]  [ 2370/60301]  eta: 9:09:39  lr: 0.000031  min_lr: 0.000001  loss: 5.7343 (5.8876)  loss_scale: 65536.0000 (8886.5255)  weight_decay: 0.0500 (0.0500)  time: 0.5810  data: 0.0245  max mem: 1686
-Epoch: [0]  [ 2380/60301]  eta: 9:09:31  lr: 0.000031  min_lr: 0.000001  loss: 5.7187 (5.8870)  loss_scale: 65536.0000 (9124.4486)  weight_decay: 0.0500 (0.0500)  time: 0.5579  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2390/60301]  eta: 9:09:23  lr: 0.000031  min_lr: 0.000001  loss: 5.7187 (5.8866)  loss_scale: 65536.0000 (9360.3814)  weight_decay: 0.0500 (0.0500)  time: 0.5583  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2400/60301]  eta: 9:09:14  lr: 0.000031  min_lr: 0.000001  loss: 5.7264 (5.8861)  loss_scale: 65536.0000 (9594.3490)  weight_decay: 0.0500 (0.0500)  time: 0.5577  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2410/60301]  eta: 9:09:05  lr: 0.000031  min_lr: 0.000001  loss: 5.7142 (5.8855)  loss_scale: 65536.0000 (9826.3758)  weight_decay: 0.0500 (0.0500)  time: 0.5559  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2420/60301]  eta: 9:08:56  lr: 0.000031  min_lr: 0.000001  loss: 5.7224 (5.8850)  loss_scale: 65536.0000 (10056.4857)  weight_decay: 0.0500 (0.0500)  time: 0.5547  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2430/60301]  eta: 9:08:48  lr: 0.000031  min_lr: 0.000001  loss: 5.8478 (5.8848)  loss_scale: 65536.0000 (10284.7026)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0022  max mem: 1686
-Epoch: [0]  [ 2440/60301]  eta: 9:08:39  lr: 0.000031  min_lr: 0.000001  loss: 5.8478 (5.8844)  loss_scale: 65536.0000 (10511.0496)  weight_decay: 0.0500 (0.0500)  time: 0.5573  data: 0.0022  max mem: 1686
-Epoch: [0]  [ 2450/60301]  eta: 9:08:31  lr: 0.000031  min_lr: 0.000001  loss: 5.7446 (5.8840)  loss_scale: 65536.0000 (10735.5496)  weight_decay: 0.0500 (0.0500)  time: 0.5574  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2460/60301]  eta: 9:08:23  lr: 0.000031  min_lr: 0.000001  loss: 5.7145 (5.8835)  loss_scale: 65536.0000 (10958.2251)  weight_decay: 0.0500 (0.0500)  time: 0.5588  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2470/60301]  eta: 9:08:15  lr: 0.000031  min_lr: 0.000001  loss: 5.7373 (5.8831)  loss_scale: 65536.0000 (11179.0983)  weight_decay: 0.0500 (0.0500)  time: 0.5589  data: 0.0022  max mem: 1686
-Epoch: [0]  [ 2480/60301]  eta: 9:09:22  lr: 0.000031  min_lr: 0.000001  loss: 5.8253 (5.8828)  loss_scale: 65536.0000 (11398.1911)  weight_decay: 0.0500 (0.0500)  time: 0.7217  data: 0.1662  max mem: 1686
-Epoch: [0]  [ 2490/60301]  eta: 9:09:15  lr: 0.000031  min_lr: 0.000001  loss: 5.7613 (5.8820)  loss_scale: 65536.0000 (11615.5247)  weight_decay: 0.0500 (0.0500)  time: 0.7217  data: 0.1653  max mem: 1686
-Epoch: [0]  [ 2500/60301]  eta: 9:09:06  lr: 0.000031  min_lr: 0.000001  loss: 5.6799 (5.8814)  loss_scale: 65536.0000 (11831.1204)  weight_decay: 0.0500 (0.0500)  time: 0.5597  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2510/60301]  eta: 9:08:58  lr: 0.000031  min_lr: 0.000001  loss: 5.5906 (5.8805)  loss_scale: 65536.0000 (12044.9988)  weight_decay: 0.0500 (0.0500)  time: 0.5592  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2520/60301]  eta: 9:08:50  lr: 0.000031  min_lr: 0.000001  loss: 5.7207 (5.8803)  loss_scale: 65536.0000 (12257.1805)  weight_decay: 0.0500 (0.0500)  time: 0.5589  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 2530/60301]  eta: 9:08:42  lr: 0.000031  min_lr: 0.000001  loss: 5.7571 (5.8799)  loss_scale: 65536.0000 (12467.6855)  weight_decay: 0.0500 (0.0500)  time: 0.5595  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 2540/60301]  eta: 9:08:33  lr: 0.000031  min_lr: 0.000001  loss: 5.6766 (5.8790)  loss_scale: 65536.0000 (12676.5336)  weight_decay: 0.0500 (0.0500)  time: 0.5591  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 2550/60301]  eta: 9:08:25  lr: 0.000031  min_lr: 0.000001  loss: 5.6766 (5.8784)  loss_scale: 65536.0000 (12883.7444)  weight_decay: 0.0500 (0.0500)  time: 0.5572  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2560/60301]  eta: 9:08:16  lr: 0.000031  min_lr: 0.000001  loss: 5.7792 (5.8780)  loss_scale: 65536.0000 (13089.3370)  weight_decay: 0.0500 (0.0500)  time: 0.5556  data: 0.0004  max mem: 1686
-[2023-07-14 14:21:35,710] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:21:35,711] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 65536 to 131072
-Epoch: [0]  [ 2570/60301]  eta: 9:08:07  lr: 0.000031  min_lr: 0.000001  loss: 5.8196 (5.8779)  loss_scale: 65536.0000 (13548.2349)  weight_decay: 0.0500 (0.0500)  time: 0.5563  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2580/60301]  eta: 9:07:59  lr: 0.000031  min_lr: 0.000001  loss: 5.7199 (5.8772)  loss_scale: 131072.0000 (14003.5769)  weight_decay: 0.0500 (0.0500)  time: 0.5581  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2590/60301]  eta: 9:08:04  lr: 0.000031  min_lr: 0.000001  loss: 5.6836 (5.8766)  loss_scale: 131072.0000 (14455.4041)  weight_decay: 0.0500 (0.0500)  time: 0.5868  data: 0.0291  max mem: 1686
-Epoch: [0]  [ 2600/60301]  eta: 9:07:55  lr: 0.000031  min_lr: 0.000001  loss: 5.6660 (5.8758)  loss_scale: 131072.0000 (14903.7570)  weight_decay: 0.0500 (0.0500)  time: 0.5856  data: 0.0291  max mem: 1686
-Epoch: [0]  [ 2610/60301]  eta: 9:07:46  lr: 0.000031  min_lr: 0.000001  loss: 5.6962 (5.8752)  loss_scale: 131072.0000 (15348.6756)  weight_decay: 0.0500 (0.0500)  time: 0.5558  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 2620/60301]  eta: 9:07:38  lr: 0.000031  min_lr: 0.000001  loss: 5.7254 (5.8749)  loss_scale: 131072.0000 (15790.1992)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 2630/60301]  eta: 9:07:30  lr: 0.000031  min_lr: 0.000001  loss: 5.7411 (5.8744)  loss_scale: 131072.0000 (16228.3664)  weight_decay: 0.0500 (0.0500)  time: 0.5584  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 2640/60301]  eta: 9:07:21  lr: 0.000031  min_lr: 0.000001  loss: 5.7407 (5.8740)  loss_scale: 131072.0000 (16663.2154)  weight_decay: 0.0500 (0.0500)  time: 0.5573  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2650/60301]  eta: 9:07:22  lr: 0.000031  min_lr: 0.000001  loss: 5.7523 (5.8736)  loss_scale: 131072.0000 (17094.7839)  weight_decay: 0.0500 (0.0500)  time: 0.5775  data: 0.0219  max mem: 1686
-Epoch: [0]  [ 2660/60301]  eta: 9:07:14  lr: 0.000031  min_lr: 0.000001  loss: 5.7213 (5.8731)  loss_scale: 131072.0000 (17523.1086)  weight_decay: 0.0500 (0.0500)  time: 0.5796  data: 0.0219  max mem: 1686
-Epoch: [0]  [ 2670/60301]  eta: 9:07:05  lr: 0.000031  min_lr: 0.000001  loss: 5.6777 (5.8726)  loss_scale: 131072.0000 (17948.2261)  weight_decay: 0.0500 (0.0500)  time: 0.5573  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2680/60301]  eta: 9:06:57  lr: 0.000031  min_lr: 0.000001  loss: 5.7169 (5.8722)  loss_scale: 131072.0000 (18370.1723)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2690/60301]  eta: 9:05:31  lr: 0.000031  min_lr: 0.000001  loss: 5.7461 (5.8719)  loss_scale: 131072.0000 (18788.9825)  weight_decay: 0.0500 (0.0500)  time: 0.3758  data: 0.0021  max mem: 1686
-Epoch: [0]  [ 2700/60301]  eta: 9:05:24  lr: 0.000031  min_lr: 0.000001  loss: 5.8700 (5.8717)  loss_scale: 131072.0000 (19204.6916)  weight_decay: 0.0500 (0.0500)  time: 0.3770  data: 0.2119  max mem: 1686
-Epoch: [0]  [ 2710/60301]  eta: 9:05:05  lr: 0.000031  min_lr: 0.000001  loss: 5.7166 (5.8707)  loss_scale: 131072.0000 (19617.3338)  weight_decay: 0.0500 (0.0500)  time: 0.5334  data: 0.3920  max mem: 1686
-Epoch: [0]  [ 2720/60301]  eta: 9:05:08  lr: 0.000031  min_lr: 0.000001  loss: 5.6984 (5.8706)  loss_scale: 131072.0000 (20026.9430)  weight_decay: 0.0500 (0.0500)  time: 0.5578  data: 0.3742  max mem: 1686
-Epoch: [0]  [ 2730/60301]  eta: 9:05:05  lr: 0.000031  min_lr: 0.000001  loss: 5.7607 (5.8701)  loss_scale: 131072.0000 (20433.5525)  weight_decay: 0.0500 (0.0500)  time: 0.5959  data: 0.2054  max mem: 1686
-Epoch: [0]  [ 2740/60301]  eta: 9:05:14  lr: 0.000031  min_lr: 0.000001  loss: 5.6470 (5.8693)  loss_scale: 131072.0000 (20837.1952)  weight_decay: 0.0500 (0.0500)  time: 0.6089  data: 0.0552  max mem: 1686
-Epoch: [0]  [ 2750/60301]  eta: 9:05:30  lr: 0.000031  min_lr: 0.000001  loss: 5.6517 (5.8691)  loss_scale: 131072.0000 (21237.9033)  weight_decay: 0.0500 (0.0500)  time: 0.6557  data: 0.2701  max mem: 1686
-Epoch: [0]  [ 2760/60301]  eta: 9:05:02  lr: 0.000031  min_lr: 0.000001  loss: 5.6736 (5.8683)  loss_scale: 131072.0000 (21635.7088)  weight_decay: 0.0500 (0.0500)  time: 0.5683  data: 0.3884  max mem: 1686
-Epoch: [0]  [ 2770/60301]  eta: 9:06:52  lr: 0.000031  min_lr: 0.000001  loss: 5.7251 (5.8680)  loss_scale: 131072.0000 (22030.6431)  weight_decay: 0.0500 (0.0500)  time: 0.7919  data: 0.5629  max mem: 1686
-Epoch: [0]  [ 2780/60301]  eta: 9:06:51  lr: 0.000031  min_lr: 0.000001  loss: 5.7535 (5.8675)  loss_scale: 131072.0000 (22422.7371)  weight_decay: 0.0500 (0.0500)  time: 0.8576  data: 0.4226  max mem: 1686
-Epoch: [0]  [ 2790/60301]  eta: 9:06:45  lr: 0.000031  min_lr: 0.000001  loss: 5.6815 (5.8672)  loss_scale: 131072.0000 (22812.0215)  weight_decay: 0.0500 (0.0500)  time: 0.5815  data: 0.0285  max mem: 1686
-Epoch: [0]  [ 2800/60301]  eta: 9:06:38  lr: 0.000031  min_lr: 0.000001  loss: 5.7233 (5.8668)  loss_scale: 131072.0000 (23198.5262)  weight_decay: 0.0500 (0.0500)  time: 0.5680  data: 0.0153  max mem: 1686
-Epoch: [0]  [ 2810/60301]  eta: 9:06:31  lr: 0.000031  min_lr: 0.000001  loss: 5.7518 (5.8664)  loss_scale: 131072.0000 (23582.2810)  weight_decay: 0.0500 (0.0500)  time: 0.5656  data: 0.0121  max mem: 1686
-[2023-07-14 14:24:03,492] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:24:03,492] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 131072 to 262144
-Epoch: [0]  [ 2820/60301]  eta: 9:06:23  lr: 0.000031  min_lr: 0.000001  loss: 5.7518 (5.8659)  loss_scale: 131072.0000 (24149.1670)  weight_decay: 0.0500 (0.0500)  time: 0.5614  data: 0.0062  max mem: 1686
-[2023-07-14 14:24:06,855] [INFO] [fused_optimizer.py:339:_update_scale] 
-Grad overflow on iteration 1411
-[2023-07-14 14:24:06,855] [INFO] [fused_optimizer.py:340:_update_scale] Reducing dynamic loss scale from 262144 to 131072.0
-[2023-07-14 14:24:06,855] [INFO] [logging.py:69:log_dist] [Rank 0] Overflow detected. Skipping step. Attempted loss scale: 262144, reducing to 131072.0
-Epoch: [0]  [ 2830/60301]  eta: 9:06:12  lr: 0.000031  min_lr: 0.000001  loss: 5.7047 (5.8659)  loss_scale: 131072.0000 (24619.4504)  weight_decay: 0.0500 (0.0500)  time: 0.5516  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 2840/60301]  eta: 9:06:04  lr: 0.000031  min_lr: 0.000001  loss: 5.7396 (5.8655)  loss_scale: 131072.0000 (24994.1514)  weight_decay: 0.0500 (0.0500)  time: 0.5508  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2850/60301]  eta: 9:05:54  lr: 0.000031  min_lr: 0.000001  loss: 5.7185 (5.8649)  loss_scale: 131072.0000 (25366.2238)  weight_decay: 0.0500 (0.0500)  time: 0.5532  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2860/60301]  eta: 9:05:45  lr: 0.000031  min_lr: 0.000001  loss: 5.7185 (5.8647)  loss_scale: 131072.0000 (25735.6952)  weight_decay: 0.0500 (0.0500)  time: 0.5516  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2870/60301]  eta: 9:05:36  lr: 0.000031  min_lr: 0.000001  loss: 5.8123 (5.8646)  loss_scale: 131072.0000 (26102.5928)  weight_decay: 0.0500 (0.0500)  time: 0.5534  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2880/60301]  eta: 9:04:40  lr: 0.000031  min_lr: 0.000001  loss: 5.7729 (5.8639)  loss_scale: 131072.0000 (26466.9434)  weight_decay: 0.0500 (0.0500)  time: 0.4345  data: 0.0014  max mem: 1686
-Epoch: [0]  [ 2890/60301]  eta: 9:04:50  lr: 0.000031  min_lr: 0.000001  loss: 5.6688 (5.8632)  loss_scale: 131072.0000 (26828.7734)  weight_decay: 0.0500 (0.0500)  time: 0.4820  data: 0.2552  max mem: 1686
-Epoch: [0]  [ 2900/60301]  eta: 9:04:49  lr: 0.000031  min_lr: 0.000001  loss: 5.6743 (5.8627)  loss_scale: 131072.0000 (27188.1089)  weight_decay: 0.0500 (0.0500)  time: 0.6214  data: 0.4811  max mem: 1686
-Epoch: [0]  [ 2910/60301]  eta: 9:04:47  lr: 0.000031  min_lr: 0.000001  loss: 5.6766 (5.8620)  loss_scale: 131072.0000 (27544.9756)  weight_decay: 0.0500 (0.0500)  time: 0.5925  data: 0.3294  max mem: 1686
-Epoch: [0]  [ 2920/60301]  eta: 9:04:46  lr: 0.000031  min_lr: 0.000001  loss: 5.6928 (5.8613)  loss_scale: 131072.0000 (27899.3988)  weight_decay: 0.0500 (0.0500)  time: 0.5907  data: 0.1196  max mem: 1686
-Epoch: [0]  [ 2930/60301]  eta: 9:04:37  lr: 0.000031  min_lr: 0.000001  loss: 5.6843 (5.8607)  loss_scale: 131072.0000 (28251.4036)  weight_decay: 0.0500 (0.0500)  time: 0.5723  data: 0.0176  max mem: 1686
-Epoch: [0]  [ 2940/60301]  eta: 9:04:55  lr: 0.000031  min_lr: 0.000001  loss: 5.6613 (5.8603)  loss_scale: 131072.0000 (28601.0146)  weight_decay: 0.0500 (0.0500)  time: 0.6220  data: 0.0662  max mem: 1686
-Epoch: [0]  [ 2950/60301]  eta: 9:04:47  lr: 0.000031  min_lr: 0.000001  loss: 5.6975 (5.8599)  loss_scale: 131072.0000 (28948.2562)  weight_decay: 0.0500 (0.0500)  time: 0.6255  data: 0.0686  max mem: 1686
-Epoch: [0]  [ 2960/60301]  eta: 9:04:39  lr: 0.000031  min_lr: 0.000001  loss: 5.6890 (5.8592)  loss_scale: 131072.0000 (29293.1523)  weight_decay: 0.0500 (0.0500)  time: 0.5591  data: 0.0028  max mem: 1686
-Epoch: [0]  [ 2970/60301]  eta: 9:04:31  lr: 0.000031  min_lr: 0.000001  loss: 5.6721 (5.8588)  loss_scale: 131072.0000 (29635.7267)  weight_decay: 0.0500 (0.0500)  time: 0.5573  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 2980/60301]  eta: 9:04:24  lr: 0.000031  min_lr: 0.000001  loss: 5.7266 (5.8585)  loss_scale: 131072.0000 (29976.0027)  weight_decay: 0.0500 (0.0500)  time: 0.5608  data: 0.0027  max mem: 1686
-Epoch: [0]  [ 2990/60301]  eta: 9:04:16  lr: 0.000031  min_lr: 0.000001  loss: 5.7266 (5.8580)  loss_scale: 131072.0000 (30314.0033)  weight_decay: 0.0500 (0.0500)  time: 0.5601  data: 0.0027  max mem: 1686
-[2023-07-14 14:25:45,749] [INFO] [timer.py:181:stop] 0/3000, SamplesPerSec=7.908630742942778
-Epoch: [0]  [ 3000/60301]  eta: 9:04:08  lr: 0.000031  min_lr: 0.000001  loss: 5.7178 (5.8577)  loss_scale: 131072.0000 (30649.7514)  weight_decay: 0.0500 (0.0500)  time: 0.5566  data: 0.0005  max mem: 1686
-[2023-07-14 14:25:49,016] [INFO] [fused_optimizer.py:339:_update_scale] 
-Grad overflow on iteration 1502
-[2023-07-14 14:25:49,017] [INFO] [fused_optimizer.py:340:_update_scale] Reducing dynamic loss scale from 131072.0 to 65536.0
-[2023-07-14 14:25:49,017] [INFO] [logging.py:69:log_dist] [Rank 0] Overflow detected. Skipping step. Attempted loss scale: 131072.0, reducing to 65536.0
-Epoch: [0]  [ 3010/60301]  eta: 9:03:58  lr: 0.000031  min_lr: 0.000001  loss: 5.7041 (5.8572)  loss_scale: 131072.0000 (30852.6762)  weight_decay: 0.0500 (0.0500)  time: 0.5532  data: 0.0005  max mem: 1686
-Epoch: [0]  [ 3020/60301]  eta: 9:03:51  lr: 0.000031  min_lr: 0.000001  loss: 5.6110 (5.8565)  loss_scale: 65536.0000 (30967.4836)  weight_decay: 0.0500 (0.0500)  time: 0.5563  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3030/60301]  eta: 9:03:43  lr: 0.000031  min_lr: 0.000001  loss: 5.6378 (5.8561)  loss_scale: 65536.0000 (31081.5335)  weight_decay: 0.0500 (0.0500)  time: 0.5601  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3040/60301]  eta: 9:03:35  lr: 0.000031  min_lr: 0.000001  loss: 5.7292 (5.8558)  loss_scale: 65536.0000 (31194.8333)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3050/60301]  eta: 9:03:27  lr: 0.000031  min_lr: 0.000001  loss: 5.6784 (5.8553)  loss_scale: 65536.0000 (31307.3904)  weight_decay: 0.0500 (0.0500)  time: 0.5565  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3060/60301]  eta: 9:03:22  lr: 0.000031  min_lr: 0.000001  loss: 5.6156 (5.8548)  loss_scale: 65536.0000 (31419.2120)  weight_decay: 0.0500 (0.0500)  time: 0.5663  data: 0.0095  max mem: 1686
-Epoch: [0]  [ 3070/60301]  eta: 9:03:15  lr: 0.000031  min_lr: 0.000001  loss: 5.6562 (5.8544)  loss_scale: 65536.0000 (31530.3054)  weight_decay: 0.0500 (0.0500)  time: 0.5684  data: 0.0095  max mem: 1686
-Epoch: [0]  [ 3080/60301]  eta: 9:03:07  lr: 0.000031  min_lr: 0.000001  loss: 5.6562 (5.8537)  loss_scale: 65536.0000 (31640.6777)  weight_decay: 0.0500 (0.0500)  time: 0.5593  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3090/60301]  eta: 9:02:59  lr: 0.000031  min_lr: 0.000001  loss: 5.6748 (5.8532)  loss_scale: 65536.0000 (31750.3358)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3100/60301]  eta: 9:02:51  lr: 0.000031  min_lr: 0.000001  loss: 5.6919 (5.8529)  loss_scale: 65536.0000 (31859.2867)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3110/60301]  eta: 9:02:43  lr: 0.000031  min_lr: 0.000001  loss: 5.7103 (5.8525)  loss_scale: 65536.0000 (31967.5371)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3120/60301]  eta: 9:02:36  lr: 0.000031  min_lr: 0.000001  loss: 5.7352 (5.8522)  loss_scale: 65536.0000 (32075.0939)  weight_decay: 0.0500 (0.0500)  time: 0.5577  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3130/60301]  eta: 9:02:28  lr: 0.000031  min_lr: 0.000001  loss: 5.7691 (5.8520)  loss_scale: 65536.0000 (32181.9636)  weight_decay: 0.0500 (0.0500)  time: 0.5581  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3140/60301]  eta: 9:02:27  lr: 0.000031  min_lr: 0.000001  loss: 5.6991 (5.8512)  loss_scale: 65536.0000 (32288.1528)  weight_decay: 0.0500 (0.0500)  time: 0.5782  data: 0.0197  max mem: 1686
-Epoch: [0]  [ 3150/60301]  eta: 9:02:20  lr: 0.000031  min_lr: 0.000001  loss: 5.6216 (5.8505)  loss_scale: 65536.0000 (32393.6680)  weight_decay: 0.0500 (0.0500)  time: 0.5785  data: 0.0197  max mem: 1686
-Epoch: [0]  [ 3160/60301]  eta: 9:02:12  lr: 0.000031  min_lr: 0.000001  loss: 5.6146 (5.8499)  loss_scale: 65536.0000 (32498.5157)  weight_decay: 0.0500 (0.0500)  time: 0.5580  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3170/60301]  eta: 9:02:04  lr: 0.000031  min_lr: 0.000001  loss: 5.6516 (5.8496)  loss_scale: 65536.0000 (32602.7020)  weight_decay: 0.0500 (0.0500)  time: 0.5575  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3180/60301]  eta: 9:01:56  lr: 0.000031  min_lr: 0.000001  loss: 5.7173 (5.8491)  loss_scale: 65536.0000 (32706.2333)  weight_decay: 0.0500 (0.0500)  time: 0.5578  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3190/60301]  eta: 9:02:18  lr: 0.000031  min_lr: 0.000001  loss: 5.7173 (5.8488)  loss_scale: 65536.0000 (32809.1156)  weight_decay: 0.0500 (0.0500)  time: 0.6400  data: 0.0838  max mem: 1686
-Epoch: [0]  [ 3200/60301]  eta: 9:02:10  lr: 0.000031  min_lr: 0.000001  loss: 5.7616 (5.8484)  loss_scale: 65536.0000 (32911.3552)  weight_decay: 0.0500 (0.0500)  time: 0.6399  data: 0.0838  max mem: 1686
-Epoch: [0]  [ 3210/60301]  eta: 9:02:59  lr: 0.000031  min_lr: 0.000001  loss: 5.6952 (5.8478)  loss_scale: 65536.0000 (33012.9580)  weight_decay: 0.0500 (0.0500)  time: 0.7170  data: 0.1604  max mem: 1686
-Epoch: [0]  [ 3220/60301]  eta: 9:02:51  lr: 0.000031  min_lr: 0.000001  loss: 5.6455 (5.8473)  loss_scale: 65536.0000 (33113.9298)  weight_decay: 0.0500 (0.0500)  time: 0.7173  data: 0.1613  max mem: 1686
-Epoch: [0]  [ 3230/60301]  eta: 9:03:11  lr: 0.000031  min_lr: 0.000001  loss: 5.6409 (5.8465)  loss_scale: 65536.0000 (33214.2767)  weight_decay: 0.0500 (0.0500)  time: 0.6364  data: 0.0800  max mem: 1686
-Epoch: [0]  [ 3240/60301]  eta: 9:03:02  lr: 0.000031  min_lr: 0.000001  loss: 5.6921 (5.8463)  loss_scale: 65536.0000 (33314.0043)  weight_decay: 0.0500 (0.0500)  time: 0.6350  data: 0.0790  max mem: 1686
-Epoch: [0]  [ 3250/60301]  eta: 9:02:55  lr: 0.000031  min_lr: 0.000001  loss: 5.7377 (5.8460)  loss_scale: 65536.0000 (33413.1184)  weight_decay: 0.0500 (0.0500)  time: 0.5570  data: 0.0013  max mem: 1686
-Epoch: [0]  [ 3260/60301]  eta: 9:02:18  lr: 0.000031  min_lr: 0.000001  loss: 5.7377 (5.8457)  loss_scale: 65536.0000 (33511.6247)  weight_decay: 0.0500 (0.0500)  time: 0.4767  data: 0.0431  max mem: 1686
-[2023-07-14 14:28:16,898] [INFO] [fused_optimizer.py:349:_update_scale] No Grad overflow for 128 iterations
-[2023-07-14 14:28:16,899] [INFO] [fused_optimizer.py:351:_update_scale] Increasing dynamic loss scale from 65536.0 to 131072.0
-Epoch: [0]  [ 3270/60301]  eta: 9:02:07  lr: 0.000031  min_lr: 0.000001  loss: 5.6351 (5.8448)  loss_scale: 65536.0000 (33769.8123)  weight_decay: 0.0500 (0.0500)  time: 0.4661  data: 0.2405  max mem: 1686
-Epoch: [0]  [ 3280/60301]  eta: 9:01:58  lr: 0.000031  min_lr: 0.000001  loss: 5.6375 (5.8444)  loss_scale: 131072.0000 (34066.3749)  weight_decay: 0.0500 (0.0500)  time: 0.5457  data: 0.4055  max mem: 1686
-Epoch: [0]  [ 3290/60301]  eta: 9:01:27  lr: 0.000031  min_lr: 0.000001  loss: 5.7419 (5.8441)  loss_scale: 131072.0000 (34361.1352)  weight_decay: 0.0500 (0.0500)  time: 0.4901  data: 0.3136  max mem: 1686
-Epoch: [0]  [ 3300/60301]  eta: 9:02:59  lr: 0.000031  min_lr: 0.000001  loss: 5.7826 (5.8441)  loss_scale: 131072.0000 (34654.1097)  weight_decay: 0.0500 (0.0500)  time: 0.7800  data: 0.3959  max mem: 1686
-Epoch: [0]  [ 3310/60301]  eta: 9:02:59  lr: 0.000031  min_lr: 0.000001  loss: 5.8285 (5.8439)  loss_scale: 131072.0000 (34945.3144)  weight_decay: 0.0500 (0.0500)  time: 0.8689  data: 0.3124  max mem: 1686
-Epoch: [0]  [ 3320/60301]  eta: 9:02:58  lr: 0.000031  min_lr: 0.000001  loss: 5.6995 (5.8433)  loss_scale: 131072.0000 (35234.7654)  weight_decay: 0.0500 (0.0500)  time: 0.6019  data: 0.0441  max mem: 1686
-Epoch: [0]  [ 3330/60301]  eta: 9:02:51  lr: 0.000031  min_lr: 0.000001  loss: 5.6825 (5.8429)  loss_scale: 131072.0000 (35522.4785)  weight_decay: 0.0500 (0.0500)  time: 0.5808  data: 0.0213  max mem: 1686
-Epoch: [0]  [ 3340/60301]  eta: 9:02:43  lr: 0.000031  min_lr: 0.000001  loss: 5.7075 (5.8425)  loss_scale: 131072.0000 (35808.4693)  weight_decay: 0.0500 (0.0500)  time: 0.5621  data: 0.0004  max mem: 1686
-Epoch: [0]  [ 3350/60301]  eta: 9:02:09  lr: 0.000031  min_lr: 0.000001  loss: 5.7677 (5.8423)  loss_scale: 131072.0000 (36092.7532)  weight_decay: 0.0500 (0.0500)  time: 0.4817  data: 0.0424  max mem: 1686
-Epoch: [0]  [ 3360/60301]  eta: 9:01:47  lr: 0.000031  min_lr: 0.000001  loss: 5.6611 (5.8416)  loss_scale: 131072.0000 (36375.3454)  weight_decay: 0.0500 (0.0500)  time: 0.4405  data: 0.2113  max mem: 1686
-Epoch: [0]  [ 3370/60301]  eta: 9:01:30  lr: 0.000031  min_lr: 0.000001  loss: 5.7419 (5.8416)  loss_scale: 131072.0000 (36656.2611)  weight_decay: 0.0500 (0.0500)  time: 0.4922  data: 0.3509  max mem: 1686
-Epoch: [0]  [ 3380/60301]  eta: 9:01:32  lr: 0.000031  min_lr: 0.000001  loss: 5.8137 (5.8415)  loss_scale: 131072.0000 (36935.5149)  weight_decay: 0.0500 (0.0500)  time: 0.5576  data: 0.3752  max mem: 1686
-Epoch: [0]  [ 3390/60301]  eta: 9:01:23  lr: 0.000031  min_lr: 0.000001  loss: 5.7741 (5.8410)  loss_scale: 131072.0000 (37213.1218)  weight_decay: 0.0500 (0.0500)  time: 0.5827  data: 0.1936  max mem: 1686
-/root/myenv/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
-and will be removed in future. Use torchrun.
-Note that --use_env is set by default in torchrun.
-If your script expects `--local_rank` argument to be set, please
-change it to read from `os.environ['LOCAL_RANK']` instead. See 
-https://pytorch.org/docs/stable/distributed.html#launch-utility for 
-further instructions
-
-  warnings.warn(
-WARNING:torch.distributed.elastic.agent.server.api:Received 15 death signal, shutting down workers
-WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2664858 closing signal SIGTERM
-Traceback (most recent call last):
-  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
-    return _run_code(code, main_globals, None,
-  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
-    exec(code, run_globals)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/launch.py", line 193, in <module>
-    main()
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/launch.py", line 189, in main
-    launch(args)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/launch.py", line 174, in launch
-    run(args)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/run.py", line 710, in run
-    elastic_launch(
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 252, in launch_agent
-    result = agent.run()
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
-    result = f(*args, **kwargs)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
-    result = self._invoke_run(role)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 843, in _invoke_run
-    time.sleep(monitor_interval)
-  File "/root/myenv/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 60, in _terminate_process_handler
-    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
-torch.distributed.elastic.multiprocessing.api.SignalException: Process 2664854 got signal: 15
+Epoch: [0]  [    0/60301]  eta: 2 days, 13:33:08  lr: 0.000063  min_lr: 0.000001  loss: 5.9922 (5.9922)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 3.6747  data: 3.2885  max mem: 8117
+Epoch: [0]  [   10/60301]  eta: 13:39:59  lr: 0.000063  min_lr: 0.000001  loss: 5.9921 (5.9921)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.8160  data: 0.4827  max mem: 8160
+Epoch: [0]  [   20/60301]  eta: 12:45:45  lr: 0.000063  min_lr: 0.000001  loss: 5.9921 (5.9920)  loss_scale: 128.0000 (128.0000)  weight_decay: 0.0500 (0.0500)  time: 0.6166  data: 0.2617  max mem: 8160
