@@ -71,6 +71,9 @@ def train_one_epoch(
     for data_iter_step, (samples, targets, _, _) in enumerate(
         metric_logger.log_every(data_loader, print_freq, header)
     ):
+
+        torch.cuda.empty_cache() # in each iteration; doing this should not be a problem if args.update_freq > 1, right?
+
         step = data_iter_step // update_freq
         if step >= num_training_steps_per_epoch:
             continue
@@ -99,6 +102,7 @@ def train_one_epoch(
         else:
             with torch.cuda.amp.autocast():
                 loss, output = train_class_batch(model, samples, targets, criterion)
+
 
         loss_value = loss.item()
 
