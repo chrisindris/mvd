@@ -723,6 +723,9 @@ def main(args, ds_init):
         args.epochs,
         num_training_steps_per_epoch,
     )
+    print("len(lr_schedule_values) =", len(lr_schedule_values))
+    print("np.unique(lr_schedule_values) =", np.unique(lr_schedule_values))
+
     print(
         "Max WD = %.7f, Min WD = %.7f"
         % (max(wd_schedule_values), min(wd_schedule_values))
