@@ -179,15 +179,16 @@ def build_dataset(is_train, test_mode, args):
     elif args.data_set == "HMDB51":
         mode = None
         anno_path = None
+        #TODO: Modify this so that we go through a different split each epoch!
         if is_train is True:
             mode = "train"
-            anno_path = os.path.join(args.data_path, "train.csv")
+            anno_path = os.path.join(args.data_path, "train_mvd_split1.csv")
         elif test_mode is True:
             mode = "test"
-            anno_path = os.path.join(args.data_path, "val.csv")
+            anno_path = os.path.join(args.data_path, "val_mvd_split1.csv")
         else:
             mode = "validation"
-            anno_path = os.path.join(args.data_path, "test.csv")
+            anno_path = os.path.join(args.data_path, "test_mvd_split1.csv")
 
         dataset = VideoClsDataset(
             anno_path=anno_path,
